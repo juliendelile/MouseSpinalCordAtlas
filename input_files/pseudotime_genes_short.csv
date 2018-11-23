@@ -1,0 +1,13 @@
+"domain"	"progenitor markers"	"neurogenesis markers"	"neuronal markers"	"DV"
+"dp1 -> dI1"	"Pax3, Olig3, Msx1"	"Atoh1"	"Lhx2, Lhx9, Pou4f1"	12
+"dp2 -> dI2"	"Pax3, Olig3, Msx1"	"Neurog1"	"Lhx1, Lhx5, Foxd3, Pou4f1"	11
+"dp3 -> dI3"	"Pax3, Olig3, Msx1"	"Ascl1, Neurog2"	"Isl1, Otp, Prrxl1, Pou4f1"	10
+"dp4 -> dI4"	"Pax3"	"Ptf1a, Ascl1, Neurog2"	"Lbx1, Lhx1, Lhx5, Pax2"	9
+"dp5 -> dI5"	"Pax3"	"Ascl1, Neurog2"	"Lbx1, Lmx1b, Pou4f1, Prrxl1"	8
+"dp6 -> dI6"	"Pax3, Dbx1"	"Neurog1, Neurog2"	"Dmrt3"	7
+"p0 -> V0"	"Dbx1"	"Neurog1, Neurog2"	"Evx1, Evx2"	6
+"p1 -> V1"	"Nkx6-2"	"Neurog1, Neurog2"	"En1, Foxd3"	5
+"p2 -> V2a"	"Foxn4"	"Ascl1, Neurog2"	"Vsx2, Lhx3, Sox21"	4
+"p2 -> V2b"	"Foxn4"	"Ascl1, Neurog2"	"Gata3, Tal1"	4
+"pMN -> MN"	"Olig2"	"Neurog2"	"Lhx3, Isl1"	3
+"p3 -> V3"	"Nkx2-2"	"Neurog3"	"Sim1, Nkx2-2"	2

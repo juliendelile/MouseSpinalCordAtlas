@@ -1,0 +1,101 @@
+{
+  "V3": {
+    "populations_markers": {
+      "V3": ["Hes6", "Neurog3", "Onecut2", "Olig3", "Pou3f1", "Pou2f2", "Nfia", "Neurod2", "Lhx1", "Sstr2"]
+    },
+    "extra_markers": ["Sim1", "Nkx2-2", "Olig3", "Pou2f2", "Onecut2"],
+    "num_clusters": [4],
+    "populations_names": ["V3_Neurod2", "V3_Neurog3", "V3_Lhx1", "V3_Olig3"],
+    "populations_colors": ["aquamarine4", "aquamarine1", "ivory1", "snow2"]
+  },
+  "MN": {
+    "populations_markers": {
+      "MN": ["Isl1", "Mnx1", "Lhx3", "Foxp1", "Pou3f1", "Aldh1a2", "Cldn3", "Phox2b", "Neurog2", "Lhx1", "Olig2", "Otp", "Nr2f1", "Dab1", "Irx3", "Alcam", "Jun"]
+    },
+    "extra_markers": ["Hoxc6", "Hoxc9", "Olig2", "Slc18a3", "Isl1", "Nr2f2", "Foxp1", "Aldh1a2", "Otp", "Slc17a6", "Onecut2", "Pou2f2"],
+    "num_clusters": [7],
+    "populations_names": ["MN_3", "MN_4", "MN_1", "MN_2", "MN_5", "MN_Foxp1", "MN_7", "MN_6", "MN_Pou3f1", "MN_8", "MN_9"],
+    "populations_colors": ["red", "seagreen1", "mediumseagreen", "gainsboro", "yellow", "midnightblue", "hotpink", "mistyrose", "chocolate4", "orange1", "lightgoldenrod2", "chocolate1"]
+  },
+  "V2b": {
+    "populations_markers": {
+      "V2b": ["Lhx1", "Neurog2", "Msx1", "Pax6", "Lhx5", "Shox2", "Nfia"]
+    },
+    "extra_markers": ["Gata2", "Gata3", "Tal1", "Sox1"],
+    "num_clusters": [4],
+    "populations_names": ["pop1", "pop2", "pop3", "pop4", "Excluded", "pop5"],
+    "populations_colors": ["midnightblue", "hotpink", "mistyrose", "chocolate4", "orange1", "lightgoldenrod2"]
+  },
+  "V2a": {
+    "populations_markers": {
+      "V2a": ["Vsx1", "Onecut1", "Pou3f1", "Maf", "Onecut2", "Onecut3", "Nfib", "Sox9"]
+    },
+    "extra_markers": ["Shox2", "Nkx6-2", "Vsx2"],
+    "num_clusters": [5],
+    "populations_names": ["pop1", "pop2", "pop3", "pop4"],
+    "populations_colors": ["midnightblue", "hotpink", "mistyrose", "chocolate4"]
+  },
+  "V1": {
+    "populations_markers": {
+      "V1": ["Foxp1", "Onecut2", "Hmx2", "Foxp2", "Nfib", "Neurod2", "Hes6", "Neurod1", "Dner", "Neurog2", "Lhx1", "Zfhx3"]
+    },
+    "extra_markers": ["Otp", "En1", "Foxd3", "Calb1"],
+    "num_clusters": [7],
+    "populations_names": ["pop1", "pop2", "pop3", "pop4", "Excluded", "pop5"],
+    "populations_colors": ["turquoise3", "maroon3", "darkolivegreen3", "deepskyblue3", "cornsilk2", "bisque2"]
+  },
+  "V0": {
+    "populations_markers": {
+      "V0": ["Evx1", "Pou2f2", "Onecut1", "Lhx1", "Lhx5", "Pax5", "Pitx2", "Neurog1", "Olig3", "Neurod2", "Dbx1", "Onecut2", "Uncx"]
+    },
+    "extra_markers": ["Slc17a6", "Slc32a1", "Gad1", "Gad2", "Slc6a5", "Lamp5", "Slc18a3", "Slc10a4", "Slc5a7", "Chat"],
+    "num_clusters": [3],
+    "populations_names": ["MN_pop1", "MN_pop2", "MN_pop3", "MN_pop4", "Excluded"],
+    "populations_colors": ["deepskyblue1", "violetred1", "cyan4", "cornsilk3", "orange3"]
+  },
+  "dl5": {
+    "populations_markers": {
+      "dl5": ["Tlx3", "Pou4f1", "Neurod6", "Ascl1", "Hes6", "Nfia", "Pou2f2", "Nrxn1", "Cbln1", "Cbln2", "Tlx3", "Lmx1b"]
+    },
+    "extra_markers": ["Sox2", "Fabp7", "Tubb3", "Lmx1b", "Lbx1", "Tlx3", "Slc17a6"],
+    "num_clusters": [5],
+    "populations_names": ["MN_pop1", "MN_pop2", "MN_pop3", "MN_pop4", "Excluded"],
+    "populations_colors": ["khaki4", "steelblue4", "red", "darkseagreen4", "chartreuse1"]
+  },
+  "dl4": {
+    "populations_markers": {
+      "dl4": ["Lmo4", "Neurod2", "Neurod6", "Lhx1", "Prdm13", "Ptf1a", "Nfia", "Nfib", "Npy", "Gbx1", "Cadm1", "Pbx3", "Nrp2", "Prox1", "Neurog2"]
+    },
+    "extra_markers": {},
+    "num_clusters": [6],
+    "populations_names": ["MN_pop1", "MN_pop2", "MN_pop3", "MN_pop4", "Excluded"],
+    "populations_colors": ["cadetblue2", "lightsalmon2", "mistyrose3", "lightpink1", "cornsilk2"]
+  },
+  "dl3": {
+    "populations_markers": {
+      "dl3": ["Isl1", "Tlx3", "Prrxl1", "Otp", "Neurog2", "Hes6", "Shox2", "Pou4f1", "Nfib", "Neurod2", "Cbln1", "Pbx3"]
+    },
+    "extra_markers": {},
+    "num_clusters": [6],
+    "populations_names": ["MN_pop1", "MN_pop2", "MN_pop3", "MN_pop4", "Excluded"],
+    "populations_colors": ["thistle4", "skyblue2", "mintcream", "turquoise4", "orangered"]
+  },
+  "dl2": {
+    "populations_markers": {
+      "dl2": ["Olig3", "Pax3", "Hmx2", "Npy", "Cbln1","Pbx3", "Slc32a1", "Nfib", "Neurod2", "Pou2f2", "Skor1", "Foxp2"]
+    },
+    "extra_markers": ["Slc17a6", "Slc32a1", "Gad1", "Gad2", "Slc6a5", "Lamp5", "Slc18a3", "Slc10a4", "Slc5a7", "Chat", "Foxd3", "En1", "Bhlhe22", "Pax2", "Pou6f2", "Gbx2", "Skor1"],
+    "num_clusters": [5],
+    "populations_names": ["pop11"],
+    "populations_colors": ["thistle4"]
+  },
+  "dl1": {
+    "populations_markers": {
+      "dl1": ["Olig3", "Lhx2", "Robo2", "Atoh1", "Nfib", "Barhl2", "Neurod2", "Nr4a2"]
+    },
+    "extra_markers": ["Slc17a6", "Slc32a1", "Gad1", "Gad2", "Slc6a5", "Lamp5", "Slc18a3", "Slc10a4", "Slc5a7", "Chat", "Barhl1", "Barhl2", "Lhx9", "Tubb3"],
+    "num_clusters": [7],
+    "populations_names": ["pop12"],
+    "populations_colors": ["thistle4"]
+  }
+}

@@ -1,0 +1,234 @@
+RP / down: Aldh1a2, Mafb
+RP-FP / down: 
+RP-p3 / down: 
+RP-dp2 / down: 
+RP-dp1 / down: Tpm2
+RP-p3-FP / down: Peg3
+RP-p1-FP / down: 
+RP-dp1-FP / down: 
+RP-dp1-dp2 / down: 
+RP-pMN-p3-FP / down: Olfml3
+RP-p0-p1-p2 / down: 
+RP-dp6-p2-FP / down: 
+RP-dp2-p3-FP / down: Col4a1, Col4a2
+RP-dp1-p3-FP / down: 
+RP-dp1-pMN-FP / down: 
+RP-dp1-dp2-dp3 / down: Axin2, Olig3
+RP-dp5-p1-p2-FP / down: 
+RP-dp1-dp2-dp3-FP / down: 
+RP-dp1-dp2-dp3-dp4 / down: 
+RP-p1-p2-pMN-p3-FP / down: 
+RP-dp5-p0-p1-p2-pMN / down: 
+RP-dp5-dp6-p0-p1-p2 / down: 
+RP-dp1-dp2-dp3-dp4-p3 / down: 
+RP-dp1-dp2-dp3-dp4-dp5 / down: 
+RP-p0-p1-p2-pMN-p3-FP / down: 
+RP-dp1-dp2-dp3-dp4-dp5-dp6 / down: 
+RP-dp1-dp2-dp3-dp4-dp5-dp6-p3-FP / down: Tcf15
+RP-dp1-dp2-dp3-dp4-dp5-dp6-p0-p1 / down: Gli3
+RP-dp1-dp2-dp3-dp4-dp5-p0-p2-pMN-p3 / down: 
+RP-dp1-dp2-dp3-dp6-p0-p1-p2-pMN-p3-FP / down: Hic2
+RP-dp1-dp2-dp3-dp4-dp5-dp6-p0-p1-p2-pMN / down: 
+RP-dp1-dp2-dp3-dp4-dp6-p0-p1-p2-pMN-p3-FP / down: 
+RP-dp1-dp2-dp3-dp4-dp5-dp6-p0-p1-p2-pMN-p3 / down: 
+dp1-dp3-dp4 / down: 
+dp1-dp3-dp4-dp5-dp6 / down: 
+dp1-dp2-dp3-dp4-dp5 / down: 
+dp1-dp3-dp4-dp5-dp6-p0-p1 / down: 
+dp1-dp3-dp4-dp5-dp6-p0-p1-p2 / down: 
+dp1-dp2-dp3-dp5-dp6-p0-p1-p2 / down: Pax6
+dp1-dp2-dp3-dp4-dp5-dp6-p0-p1-p2 / down: Scube2
+dp1-dp2-dp3-dp4-dp5-dp6-p0-p1-p2-pMN / down: 
+dp1-dp2-dp3-dp4-dp5-dp6-p0-p1-p2-pMN-p3-FP / down: 
+dp2-dp4 / down: Hba-x, Hbb-bh1
+dp3-dp4 / down: 
+dp3-dp4-dp5 / down: 
+dp5 / down: 
+dp5-p0-p1 / down: 
+dp5-p0-p1-p2 / down: 
+dp5-dp6-p0-p1 / down: 
+dp5-p0-p1-p2-pMN / down: 
+dp5-p0-p1-p2-pMN-p3 / down: 
+dp5-dp6-p0-p1-p3-FP / down: 
+dp5-p0-p1-p2-pMN-p3-FP / down: 
+dp5-dp6-p0-p1-p2-pMN-p3 / down: 
+dp5-dp6-p0-p1-p2-pMN-p3-FP / down: 
+dp6-p0 / down: 
+dp6-p0-p1-p2 / down: 
+dp6-p0-p1-p2-p3 / down: 
+dp6-p0-p1-p2-pMN / down: 
+p0-p1 / down: 
+p0-p1-p2 / down: 
+p0-p1-p2-pMN / down: 
+p0-p1-p2-pMN-p3 / down: 
+p0-p1-p2-pMN-p3-FP / down: 
+p1 / down: Ass1
+p1-p2-p3 / down: 
+p1-p2-pMN-p3 / down: 
+p2 / down: 
+p2-p3 / down: 
+p2-p3-FP / down: Ddc
+p2-pMN-FP / down: 
+p2-pMN-p3-FP / down: Filip1l, Nkx6-1
+pMN / down: 
+pMN-p3 / down: Grrp1
+pMN-p3-FP / down: 
+p3 / down: Nkx2-9
+p3-FP / down: Apela, Car4, Dab2, Foxa2, Halr1, Hsd11b2, Ifitm1, Ifitm3, Kank1, Ociad2
+FP / down: Arg1, Calca, Cplx2, Gpc3, Hbegf, Klhl21, Nrp2, Opcml, Plekhh2, Pygl
+RP / up: 2700069I18Rik, Acss2, Bnc2, Cd9, Chst1, Col14a1, Cp, Cux2, Cx3cl1, ENSMUSG00000097348, Edil3, Efcc1, Ezr, Flnc, Gm5089, Gxylt2, Ism1, Kcnn3, Kif26b, Nid1, Npy, Nsg2, Pag1, Pam, Pcp4l1, Ppm1h, Rnf182, Rspo1, Sema3c, Sostdc1, Tmem176b, Tmem255a, Tpbg, Xpr1, Zcchc18
+RP-FP / up: Anxa2, Col2a1, Emp1, Klhdc8b, Pcsk1n, Pltp, Slit2, Vgll3
+RP-p3 / up: Nfic, Tmcc3
+RP-dp2 / up: 
+RP-dp1 / up: 
+RP-p3-FP / up: Ak1, C1qtnf3, Chchd10, H19, Npr3
+RP-p1-FP / up: 
+RP-dp1-FP / up: 
+RP-dp1-dp2 / up: 
+RP-pMN-p3-FP / up: Tmem35a
+RP-p0-p1-p2 / up: Pla2g7
+RP-dp6-p2-FP / up: 
+RP-dp2-p3-FP / up: 
+RP-dp1-p3-FP / up: 
+RP-dp1-pMN-FP / up: 
+RP-dp1-dp2-dp3 / up: 
+RP-dp5-p1-p2-FP / up: Dkk3
+RP-dp1-dp2-dp3-FP / up: 
+RP-dp1-dp2-dp3-dp4 / up: Zic3, Zic4
+RP-p1-p2-pMN-p3-FP / up: Ly6h
+RP-dp5-p0-p1-p2-pMN / up: Cd200
+RP-dp5-dp6-p0-p1-p2 / up: 
+RP-dp1-dp2-dp3-dp4-p3 / up: 
+RP-dp1-dp2-dp3-dp4-dp5 / up: Ptn
+RP-p0-p1-p2-pMN-p3-FP / up: Kcnk2, Ppp1r14c
+RP-dp1-dp2-dp3-dp4-dp5-dp6 / up: 
+RP-dp1-dp2-dp3-dp4-dp5-dp6-p3-FP / up: 
+RP-dp1-dp2-dp3-dp4-dp5-dp6-p0-p1 / up: 
+RP-dp1-dp2-dp3-dp4-dp5-p0-p2-pMN-p3 / up: Mt2
+RP-dp1-dp2-dp3-dp6-p0-p1-p2-pMN-p3-FP / up: 
+RP-dp1-dp2-dp3-dp4-dp5-dp6-p0-p1-p2-pMN / up: Socs2
+RP-dp1-dp2-dp3-dp4-dp6-p0-p1-p2-pMN-p3-FP / up: 
+RP-dp1-dp2-dp3-dp4-dp5-dp6-p0-p1-p2-pMN-p3 / up: 
+dp1-dp3-dp4 / up: 
+dp1-dp3-dp4-dp5-dp6 / up: 
+dp1-dp2-dp3-dp4-dp5 / up: 
+dp1-dp3-dp4-dp5-dp6-p0-p1 / up: Fat4
+dp1-dp3-dp4-dp5-dp6-p0-p1-p2 / up: Wnt7b
+dp1-dp2-dp3-dp5-dp6-p0-p1-p2 / up: 
+dp1-dp2-dp3-dp4-dp5-dp6-p0-p1-p2 / up: 
+dp1-dp2-dp3-dp4-dp5-dp6-p0-p1-p2-pMN / up: 
+dp1-dp2-dp3-dp4-dp5-dp6-p0-p1-p2-pMN-p3-FP / up: 
+dp2-dp4 / up: Hbb-bs
+dp3-dp4 / up: 
+dp3-dp4-dp5 / up: 
+dp5 / up: Cav1, Cav2, Grik2, Pgf
+dp5-p0-p1 / up: Frzb, Sp9
+dp5-p0-p1-p2 / up: Aldoc, Rlbp1
+dp5-dp6-p0-p1 / up: Dbx2
+dp5-p0-p1-p2-pMN / up: Bcan, Cdc42ep2
+dp5-p0-p1-p2-pMN-p3 / up: Mmd2
+dp5-dp6-p0-p1-p3-FP / up: 
+dp5-p0-p1-p2-pMN-p3-FP / up: Slc6a1, Slc6a11, Timp3, Trim9
+dp5-dp6-p0-p1-p2-pMN-p3 / up: E130114P18Rik, Fgfbp3
+dp5-dp6-p0-p1-p2-pMN-p3-FP / up: Vit
+dp6-p0 / up: 
+dp6-p0-p1-p2 / up: 
+dp6-p0-p1-p2-p3 / up: 
+dp6-p0-p1-p2-pMN / up: 
+p0-p1 / up: 
+p0-p1-p2 / up: 
+p0-p1-p2-pMN / up: 
+p0-p1-p2-pMN-p3 / up: Nmnat2
+p0-p1-p2-pMN-p3-FP / up: Epha5, Ephb1
+p1 / up: 
+p1-p2-p3 / up: 
+p1-p2-pMN-p3 / up: Gm37350
+p2 / up: 
+p2-p3 / up: 
+p2-p3-FP / up: 
+p2-pMN-FP / up: Fam198b
+p2-pMN-p3-FP / up: 
+pMN / up: Vldlr
+pMN-p3 / up: Gm14226, Gria2
+pMN-p3-FP / up: Calcrl
+p3 / up: 
+p3-FP / up: Chl1, Ntn1, Sulf1
+FP / up: 1190002N15Rik, Adat1, Alcam, Arx, Bmp1, Cbln1, Crim1, Ctso, Dcn, Efcab1, Enpp2, Fam210b, Foxa1, Foxj1, Frmd4b, Gm2694, Pcp4, Plekha2, Plppr1, Ralyl, Sh2d4a, Sipa1l2, Sirpa, Slco3a1, Spon1, Tcn2, Tm4sf1, Tmem100, Tppp3, Vtn, Wnt5a
+RP / Undetermined: 1700011H14Rik, Bambi, Bmper, C77080, Cntnap2, Col4a6, Colec12, Ctif, Dync1i1, Etl4, Frs2, G6pc2, Gjb2, Glis3, Gm12589, Gm29107, Grin2c, Hacd4, Igfbpl1, Ldb2, Lifr, Lmx1a, Lrp1b, Msx1, Naaladl2, Ngfr, Npepl1, Nr4a3, Pla2g16, Plp2, Pou6f2, Prickle2, Rbm47, Rdh5, Rftn1, Rprd1a, Rspo3, Sh3bp5, Shox2, Slc25a53, Smad6, Snhg11, Sorl1, Sost, Sptb, Srpx, St6galnac5, Tcea3, Tmem132c, Tmem163, Wnt1, Wnt3a, Wnt9a, Zfp651
+RP-FP / Undetermined: Calml4, Ccdc3, Ccdc74a, Col4a5, Col5a1, Efnb3, Gm17455, Igfbp5, Krt18, Lpl, Metrnl, Mtss1l, Negr1, Sdpr, Smarca1, Sobp, Syt7, Tns3, Trabd2b, Ttc28
+RP-p3 / Undetermined: 
+RP-dp2 / Undetermined: Hapln1
+RP-dp1 / Undetermined: Cdon, Col12a1, Msx2, Rasl10b, Unc5c
+RP-p3-FP / Undetermined: Fcgrt, Fhdc1, Gm14964, Gm867
+RP-p1-FP / Undetermined: Nos1ap
+RP-dp1-FP / Undetermined: Nog
+RP-dp1-dp2 / Undetermined: 1700040F17Rik, Casz1
+RP-pMN-p3-FP / Undetermined: Adamtsl1, Dlk1, Sulf2
+RP-p0-p1-p2 / Undetermined: 
+RP-dp6-p2-FP / Undetermined: Wipi1
+RP-dp2-p3-FP / Undetermined: 
+RP-dp1-p3-FP / Undetermined: Dmrtb1
+RP-dp1-pMN-FP / Undetermined: Ltbp1
+RP-dp1-dp2-dp3 / Undetermined: Gdf10, Zic2, Zic5
+RP-dp5-p1-p2-FP / Undetermined: 
+RP-dp1-dp2-dp3-FP / Undetermined: Rgs2, Zfp703
+RP-dp1-dp2-dp3-dp4 / Undetermined: Draxin, Fgf15, Fzd10, Msx3, Nppc, Wnt3, Zic1
+RP-p1-p2-pMN-p3-FP / Undetermined: 
+RP-dp5-p0-p1-p2-pMN / Undetermined: 
+RP-dp5-dp6-p0-p1-p2 / Undetermined: Lmo1
+RP-dp1-dp2-dp3-dp4-p3 / Undetermined: Bmpr1b
+RP-dp1-dp2-dp3-dp4-dp5 / Undetermined: Efnb2
+RP-p0-p1-p2-pMN-p3-FP / Undetermined: 
+RP-dp1-dp2-dp3-dp4-dp5-dp6 / Undetermined: Gas1, Pax3
+RP-dp1-dp2-dp3-dp4-dp5-dp6-p3-FP / Undetermined: 
+RP-dp1-dp2-dp3-dp4-dp5-dp6-p0-p1 / Undetermined: 
+RP-dp1-dp2-dp3-dp4-dp5-p0-p2-pMN-p3 / Undetermined: 
+RP-dp1-dp2-dp3-dp6-p0-p1-p2-pMN-p3-FP / Undetermined: 
+RP-dp1-dp2-dp3-dp4-dp5-dp6-p0-p1-p2-pMN / Undetermined: 
+RP-dp1-dp2-dp3-dp4-dp6-p0-p1-p2-pMN-p3-FP / Undetermined: Ankle2, Mfng
+RP-dp1-dp2-dp3-dp4-dp5-dp6-p0-p1-p2-pMN-p3 / Undetermined: Bop1, Pou3f3
+dp1-dp3-dp4 / Undetermined: Gbx2, Gsx1
+dp1-dp3-dp4-dp5-dp6 / Undetermined: Pax7
+dp1-dp2-dp3-dp4-dp5 / Undetermined: Irx2
+dp1-dp3-dp4-dp5-dp6-p0-p1 / Undetermined: 
+dp1-dp3-dp4-dp5-dp6-p0-p1-p2 / Undetermined: 
+dp1-dp2-dp3-dp5-dp6-p0-p1-p2 / Undetermined: Irx3
+dp1-dp2-dp3-dp4-dp5-dp6-p0-p1-p2 / Undetermined: Irx5
+dp1-dp2-dp3-dp4-dp5-dp6-p0-p1-p2-pMN / Undetermined: Foxb1
+dp1-dp2-dp3-dp4-dp5-dp6-p0-p1-p2-pMN-p3-FP / Undetermined: Sox21
+dp2-dp4 / Undetermined: Hba-a1, Hba-a2, Hbb-y
+dp3-dp4 / Undetermined: Ascl1
+dp3-dp4-dp5 / Undetermined: Gsx2
+dp5 / Undetermined: 
+dp5-p0-p1 / Undetermined: 
+dp5-p0-p1-p2 / Undetermined: 
+dp5-dp6-p0-p1 / Undetermined: 
+dp5-p0-p1-p2-pMN / Undetermined: Prdm8
+dp5-p0-p1-p2-pMN-p3 / Undetermined: 
+dp5-dp6-p0-p1-p3-FP / Undetermined: Neurog3
+dp5-p0-p1-p2-pMN-p3-FP / Undetermined: Sema6a
+dp5-dp6-p0-p1-p2-pMN-p3 / Undetermined: 
+dp5-dp6-p0-p1-p2-pMN-p3-FP / Undetermined: 
+dp6-p0 / Undetermined: Dbx1
+dp6-p0-p1-p2 / Undetermined: Neurog1
+dp6-p0-p1-p2-p3 / Undetermined: 2010107G23Rik
+dp6-p0-p1-p2-pMN / Undetermined: Neurog2, Sp8
+p0-p1 / Undetermined: Gm26771
+p0-p1-p2 / Undetermined: Mybl1, Sfrp2
+p0-p1-p2-pMN / Undetermined: Moxd1
+p0-p1-p2-pMN-p3 / Undetermined: Neurod4
+p0-p1-p2-pMN-p3-FP / Undetermined: 
+p1 / Undetermined: Jag1, Nkx6-2, Prdm12
+p1-p2-p3 / Undetermined: 3110035E14Rik
+p1-p2-pMN-p3 / Undetermined: 
+p2 / Undetermined: Alpl, Apoe, Vsx1
+p2-p3 / Undetermined: Insm1
+p2-p3-FP / Undetermined: 
+p2-pMN-FP / Undetermined: 
+p2-pMN-p3-FP / Undetermined: Tox2
+pMN / Undetermined: Olig2
+pMN-p3 / Undetermined: 
+pMN-p3-FP / Undetermined: 
+p3 / Undetermined: Nkx2-2
+p3-FP / Undetermined: Cthrc1, D430019H16Rik, Fndc3b, S100a10, Slit1
+FP / Undetermined: 1700012P22Rik, Adcy2, Anxa5, Arhgef28, Atp1b1, B3gnt4, Card19, Ccdc39, Cdc42ep3, Cmtm8, Cobl, Corin, Creb3l2, Cxcl12, Epb41l4b, Fam174b, Fam183b, Frmd6, Galr1, Gcnt2, Gm973, Gprc5c, Gpx3, Irs1, Kitl, Lmx1b, Nectin3, Nrcam, Nrp1, Pcsk6, Phldb2, Plcl1, Pon2, Ppfibp2, Ramp1, Rbp4, Sel1l, Shh, Shisa2, Slit3, St3gal6, Stxbp6, Thsd7a, Tmeff2, Tspan2, Tubb4a
