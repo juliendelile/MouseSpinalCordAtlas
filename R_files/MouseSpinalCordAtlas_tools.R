@@ -774,7 +774,7 @@ plotPredictedSelection <- function(
                   strip.text.y = element_text(angle = 0, hjust = 0),
                   legend.position="none"
               )
-    pdf(paste0(plot_path, '/', cat_name, '.pdf'), ...)
+    pdf(paste0(output_path, '/', cat_name, '.pdf'), ...)
     print(p)
     graphics.off()
     
@@ -795,7 +795,7 @@ plotPredictedSelection <- function(
                   strip.text.y = element_text(angle = 0, hjust = 0)
               )
 
-    pdf(paste0(plot_path, '/', cat_name, '_shrink.pdf'), ...)
+    pdf(paste0(output_path, '/', cat_name, '_shrink.pdf'), ...)
     print(p)
     graphics.off()
 
@@ -834,7 +834,7 @@ plotAveragePerTypeTimeDV <- function(currm, gene, threshold = 10, basename=NULL)
             plot.title = element_text(face = "bold", size = 32)) + 
       guides(color = 'none')
   
-  pdf(paste0(plot_path, '/', basename, gene, ".pdf"), width =10, height = 10, useDingbats = FALSE)
+  pdf(paste0(output_path, '/', basename, gene, ".pdf"), width =10, height = 10, useDingbats = FALSE)
   print(gg)
   graphics.off()
 
@@ -849,7 +849,7 @@ plotNeuroSpace <- function(
 
   cell_ids = which(pData(m_neural$expressionSet)$DV %in% cell_domains)
 
-  png(paste0(plot_path, '/', basename, 'PCA_Dotplot.pdf'), width=4000, height=4000)
+  png(paste0(output_path, '/', basename, 'PCA_Dotplot.png'), width=4000, height=4000)
 
   nplot = length(genelist) + 2
   ncol = as.integer(sqrt(nplot))+1
@@ -931,7 +931,7 @@ plotNeuroSpace <- function(
 
   })
 
-  pdf(paste0(plot_path, '/', basename, 'PCA_HEXplot.pdf'), height=40, width=40, useDingbats=FALSE)
+  pdf(paste0(output_path, '/', basename, 'PCA_HEXplot.pdf'), height=40, width=40, useDingbats=FALSE)
   gridExtra::grid.arrange(grobs=rplots, layout_matrix=matrix(seq(3*(as.integer((length(genelist)+2)/3)+1)), ncol=3, byrow=T))
   graphics.off()
 

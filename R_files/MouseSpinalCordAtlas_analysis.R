@@ -286,7 +286,7 @@ graphics.off()
 
 #' ### tSNE plots
 
-#' tSNE computation takes about 30min, skip to next section if the code as already run once.
+#' tSNE computation takes about 30min, skip to next section if the code has already run once.
 m$normalize("geometric_mean_sizeFactors")
 step1.tsne.data = m$getReadcounts('Normalized')[unique(unlist(cell_partition$step1_markers)), ]
 set.seed(1)
@@ -1497,11 +1497,10 @@ table(abs( pca_res$x - t((pca.input - pca_res$center) / pca_res$scale) %*% pca_r
 pca.input_all=log(m_neural$getReadcounts('Normalized')[unlist(selected_gms), ]+1)
 pca_res_all_x = t((pca.input_all - pca_res$center) / pca_res$scale) %*% pca_res$rotation
 
-pData(m_neural$expressionSet)$Pseudotime = pca_res_all_x[, 1] %>% {100*((. - min(.))/(max(.) - min(.)))}
-
 # Manual x-axis flip to have neuron on the right hand side
-
 pca_res_all_x[, 1] <- - pca_res_all_x[, 1]
+
+pData(m_neural$expressionSet)$Pseudotime = pca_res_all_x[, 1] %>% {100*((. - min(.))/(max(.) - min(.)))}
 
 plotNeuroSpace(cell_domains=2:12, genelist=c('Lin28a', 'Fabp7', 'Sox2', "Tubb3", "Elavl3"), basename="Fig6A_")
 # plotNeuroSpace(cell_domains=2, genelist=c('Sox2', "Tubb3"), basename="Fig6B_2_")
@@ -1541,7 +1540,7 @@ smoothed_genes = getDispersedGenes(m_neural$getReadcounts('Normalized'), 0)
 num_pt = 100
 mincells = 20
 
-#' Smoothing runtime is about 20 mins
+#' Smoothing runtime takes about 20 mins
 t0=Sys.time()
 bif_dataset_vgam = do.call(cbind, lapply(2:12, function(dv){
                         print(dv)                                     
