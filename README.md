@@ -1959,13 +1959,3 @@ NA
 <img src="./suppl_files/PT_profile_dp2-dl2.png" width="60%">
 
 </p>
-
-Aggregate all domains heatmaps in a single
-pdf
-
-``` r
-system2(command="gs", args=sprintf("-dBATCH -dNOPAUSE -q -sDEVICE=pdfwrite -dAutoRotatePages=/None -sOutputFile=%s %s", paste0(output_path, "/FIG6_S6_Pseudotime_Selected_Profiles_per_Domain_Monocle.pdf"), paste0(paste0(output_path, '/PT_profile_', names(highlighted_genes), '_Monocle.pdf'), collapse=" ")))
-```
-
-<a href="./suppl_files/FIG6_S6_Pseudotime_Selected_Profiles_per_Domain_Monocle.pdf">Download
-domain pseudotime files</a>
