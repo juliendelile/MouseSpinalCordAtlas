@@ -1364,6 +1364,7 @@ graphics.off()
 
 #' Resample dataset to have as many cells at each pairs of (timepoint x domain) conditions
 
+m_RP = m_neural$copy()
 RNGkind("Mersenne-Twister")
 set.seed(1)
 equal_sample_size = 500
