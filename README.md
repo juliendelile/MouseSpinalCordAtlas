@@ -42,7 +42,7 @@ Most functions not provided by Antler are stored in
 MouseSpinalCordAtlas\_tools.R
 
 ``` r
-source('./R_files/MouseSpinalCordAtlas_tools.R'))
+source('./R_files/MouseSpinalCordAtlas_tools.R')
 ```
 
 The output path can be changed to any existing directory path
@@ -144,9 +144,9 @@ target population state defined by a list of known marker
 genes
 
 ``` r
-cell_partition = doCellPartition(known_template_file="./input/partitioning_table.csv", readcounts=m$getReadcounts(data_status='Raw'))
+cell_partition = doCellPartition(known_template_file="./input_files/partitioning_table.csv", readcounts=m$getReadcounts(data_status='Raw'))
 
-pop_colors = getPopulationColors(known_template_file="./input/partitioning_table.csv")
+pop_colors = getPopulationColors(known_template_file="./input_files/partitioning_table.csv")
 
 for(md in c("Type_step1", "Type_step2", "Type_step2_unique", "DV")){pData(m$expressionSet)[[md]] <- cell_partition[[md]]}
 ```
@@ -355,8 +355,7 @@ print(p)
 graphics.off()
 ```
 
-<a href="./suppl_files/FIG1_Neurons_bubble_chart.pdf">Download
-PDF</a>
+<a href="./suppl_files/FIG1_Neurons_bubble_chart.pdf">Download PDF</a>
 
 <p align="center">
 
@@ -366,18 +365,23 @@ PDF</a>
 
 ### tSNE plots
 
-``` r
-# Comment / Uncomment following lines to re-run tsne computation (takes a long time, 30min ?)
+tSNE computation takes about 30min, skip to next section if the code as
+already run once.
 
+``` r
 m$normalize("geometric_mean_sizeFactors")
 step1.tsne.data = m$getReadcounts('Normalized')[unique(unlist(cell_partition$step1_markers)), ]
 set.seed(1)
 t0=Sys.time()
 step1.tsne.coords = Rtsne::Rtsne(t(step1.tsne.data), pca=FALSE, perplexity=100, max_iter=2000, verbose=T, check_duplicates = FALSE)$Y
 print(Sys.time()-t0)
-saveRDS(step1.tsne.coords, file=paste0(output_path, '/step1.tsne.coords2.rds'))
+saveRDS(step1.tsne.coords, file=paste0(output_path, '/step1.tsne.coords.rds'))
+```
 
-# Load pre calculated tsne coordinates
+Load pre calculated tsne
+coordinates
+
+``` r
 step1.tsne.coords = readRDS(paste0(output_path, '/step1.tsne.coords.rds'))
 
 png(paste0(output_path, '/FIG1_Map_Step1_tSNE_Normalized_Types.png'), width=4000, height=4000, pointsize=75)
