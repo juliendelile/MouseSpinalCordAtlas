@@ -365,7 +365,7 @@ graphics.off()
 
 ### tSNE plots
 
-tSNE computation takes about 30min, skip to next section if the code as
+tSNE computation takes about 30min, skip to next section if the code has
 already run once.
 
 ``` r
@@ -1630,6 +1630,7 @@ Resample dataset to have as many cells at each pairs of (timepoint x
 domain) conditions
 
 ``` r
+m_RP = m_neural$copy()
 RNGkind("Mersenne-Twister")
 set.seed(1)
 equal_sample_size = 500
@@ -1779,11 +1780,10 @@ table(abs( pca_res$x - t((pca.input - pca_res$center) / pca_res$scale) %*% pca_r
 pca.input_all=log(m_neural$getReadcounts('Normalized')[unlist(selected_gms), ]+1)
 pca_res_all_x = t((pca.input_all - pca_res$center) / pca_res$scale) %*% pca_res$rotation
 
-pData(m_neural$expressionSet)$Pseudotime = pca_res_all_x[, 1] %>% {100*((. - min(.))/(max(.) - min(.)))}
-
 # Manual x-axis flip to have neuron on the right hand side
-
 pca_res_all_x[, 1] <- - pca_res_all_x[, 1]
+
+pData(m_neural$expressionSet)$Pseudotime = pca_res_all_x[, 1] %>% {100*((. - min(.))/(max(.) - min(.)))}
 
 plotNeuroSpace(cell_domains=2:12, genelist=c('Lin28a', 'Fabp7', 'Sox2', "Tubb3", "Elavl3"), basename="Fig6A_")
 # plotNeuroSpace(cell_domains=2, genelist=c('Sox2', "Tubb3"), basename="Fig6B_2_")
@@ -1830,7 +1830,7 @@ num_pt = 100
 mincells = 20
 ```
 
-Smoothing runtime is about 20 mins
+Smoothing runtime takes about 20 mins
 
 ``` r
 t0=Sys.time()
