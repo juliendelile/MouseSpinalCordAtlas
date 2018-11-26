@@ -33,7 +33,7 @@ matrix is available
 The Antler package is required and can be installed with devtools.
 
 ``` r
-devtools::github_install("juliendelile/Antler")
+devtools::install_github("juliendelile/Antler")
 
 library(Antler)
 ```
