@@ -43,11 +43,11 @@ downloading the following files:
     matrix](https://dl.dropboxusercontent.com/s/ifrdqhea1fs6xuc/assayData.csv)  
   - [Annotated cell
     meta-data](https://github.com/juliendelile/MouseSpinalCordAtlas/raw/master/output/phenoData_annotated.csv)
-    indicating the cells’ sample time, replicate id and types as
+    indicating the cells’ sample times, replicate ids and types as
     determined by the following pipeline. “Type\_step1” and
-    “Type\_step2” stands for the 2-step partitioning algorithm
-    (Section 2). “Neuron\_subtypes” indicates the result of the
-    per-neuronal-type subclustering (Section
+    “Type\_step2” stands for the outcome of the 2-step partitioning
+    algorithm (Section 2). “Neuron\_subtypes” indicates the result of
+    the per-neuronal-type subclustering (Section
 5).
 
 # 
