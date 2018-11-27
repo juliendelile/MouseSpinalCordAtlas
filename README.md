@@ -37,11 +37,12 @@ cord. BioRxiv, 472415. <https://doi.org/10.1101/472415>*
 # 
 
 Those interested by processing the dataset independently should consider
-downloading the following files:
+downloading:
 
-  - [UMI count
-    matrix](https://dl.dropboxusercontent.com/s/ifrdqhea1fs6xuc/assayData.csv)  
-  - [Annotated cell
+  - the [UMI raw count
+    matrix](https://dl.dropboxusercontent.com/s/ifrdqhea1fs6xuc/assayData.csv)
+    as outputted by the 10X Genomics cellranger pipeline.  
+  - the [Annotated cell
     meta-data](https://github.com/juliendelile/MouseSpinalCordAtlas/raw/master/output/phenoData_annotated.csv)
     indicating the cells’ sample times, replicate ids and types as
     determined by the following pipeline. “Type\_step1” and
