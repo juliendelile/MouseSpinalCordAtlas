@@ -18,8 +18,9 @@ Sagner, A. (2018). Single cell transcriptomics reveals spatial and
 temporal dynamics of gene expression in the developing mouse spinal
 cord. BioRxiv, 472415. <https://doi.org/10.1101/472415>*
 
+  - [Data availability](#data-availability)
   - [Figure shortcuts](#figure-shortcuts)
-  - [Preliminaries](#preliminaries)
+  - [Analysis preliminaries](#analysis-preliminaries)
   - [1. Load and hygienize dataset](#1-load-and-hygienize-dataset)
   - [2. Knowledge-based identification of all cell
     populations](#2-knowledge-based-identification-of-all-cell-populations)
@@ -27,8 +28,27 @@ cord. BioRxiv, 472415. <https://doi.org/10.1101/472415>*
   - [4. Combinatorial DE tests](#4-combinatorial-de-tests)
   - [5. Neuronal populations
     clustering](#5-neuronal-populations-clustering)
-  - [6. Neurogenesis
-dynamics](#6-neurogenesis-dynamics)
+  - [6. Neurogenesis dynamics](#6-neurogenesis-dynamics)
+
+# 
+
+## Data availability
+
+# 
+
+Those interested by processing the dataset independently should consider
+downloading the following files:
+
+  - [UMI count
+    matrix](https://dl.dropboxusercontent.com/s/ifrdqhea1fs6xuc/assayData.csv)  
+  - [Annotated cell
+    meta-data](https://github.com/juliendelile/MouseSpinalCordAtlas/raw/master/output/phenoData_annotated.csv)
+    indicating the cells’ sample time, replicate id and types as
+    determined by the following pipeline. “Type\_step1” and
+    “Type\_step2” stands for the 2-step partitioning algorithm
+    (Section 2). “Neuron\_subtypes” indicates the result of the
+    per-neuronal-type subclustering (Section
+5).
 
 # 
 
@@ -48,7 +68,7 @@ dynamics](#6-neurogenesis-dynamics)
 
 # 
 
-## Preliminaries
+## Analysis Preliminaries
 
 # 
 
@@ -917,8 +937,8 @@ Generate tested models
 progCombinatorialModels = generateCombinatorialModels(m_prog_combDE)
 ```
 
-Run
-tests
+Run tests (about 24h with 8
+cores)
 
 ``` r
 Monocle_run_prog = runCombinatorialDETests(m_prog_combDE, progCombinatorialModels, numcores=8)
@@ -1175,6 +1195,7 @@ for(p in names(processed_subsets)) {
 }
 
 saveRDS(m_pops, file=paste0(output_path, '/All_Clusters_topCorrDR_Neurons.rds'))
+# m_pops = readRDS(file=paste0(output_path, '/All_Clusters_topCorrDR_Neurons.rds'))
 ```
 
 ### Partition neurons from curated gene modules
@@ -1583,7 +1604,7 @@ graphics.off()
 
 </p>
 
-Export subcluster ids in new structure
+Export subcluster ids in new m\_neural structure
 
 ``` r
 m_neural = readRDS(paste0(output_path, '/m_neural.rds'))
@@ -1601,6 +1622,22 @@ pData(m_neural$expressionSet)$subtypes[which(pData(m_neural$expressionSet)$subty
 
 saveRDS(m_neural, file=paste0(output_path, '/m_neural_subtypes.rds'))
 # m_neural = readRDS(file=paste0(output_path, '/m_neural_subtypes.rds'))
+```
+
+Export complete dataset meta-data, including all cell
+types
+
+``` r
+full_pData = read.table('./dataset/phenoData.csv', header=TRUE, sep="\t", row.names=1, as.is=TRUE, stringsAsFactors=F, check.names=FALSE)
+
+full_pData$Type_step1 = rep("Outliers", nrow(full_pData))
+full_pData[rownames(pData(m$expressionSet)), "Type_step1"] <- as.character(pData(m$expressionSet)$Type_step1)
+full_pData$Type_step2 = rep("Outliers", nrow(full_pData))
+full_pData[rownames(pData(m$expressionSet)), "Type_step2"] <- as.character(pData(m$expressionSet)$Type_step2)
+full_pData$Neuron_subtypes = rep(NA, nrow(full_pData))
+full_pData[rownames(pData(m_neural$expressionSet)), "Neuron_subtypes"] <- as.character(pData(m_neural$expressionSet)$subtypes)
+
+write.table(x=full_pData, file='./output/phenoData_annotated.csv', sep='\t', row.names=TRUE, quote=TRUE, col.names=NA)
 ```
 
 ### Neurogenesis waves
