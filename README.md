@@ -1,8 +1,14 @@
 # Mouse Spinal Cord Atlas
 
+<p align="center">
+
+<img src="./suppl_files/dendrogram_highlights.png" width="100%">
+
+</p>
+
 **DISCLAIMER: This repository is under construction. The code is being
-refactored and ***has not been tested***. A finalized release will be
-available in short order.**
+refactored and ***has not been fully tested***. A finalized release will
+be available in short order.**
 
 This repository contains the R code used to analyse the single-cell
 RNA-seq dataset shown in:
@@ -12,23 +18,45 @@ Sagner, A. (2018). Single cell transcriptomics reveals spatial and
 temporal dynamics of gene expression in the developing mouse spinal
 cord. BioRxiv, 472415. <https://doi.org/10.1101/472415>*
 
-<p align="center">
+  - [Figure shortcuts](#figure-shortcuts)
+  - [Preliminaries](#preliminaries)
+  - [1. Load and hygienize dataset](#1-load-and-hygienize-dataset)
+  - [2. Knowledge-based identification of all cell
+    populations](#2-knowledge-based-identification-of-all-cell-populations)
+  - [3. Population size dynamics](#3-population-size-dynamics)
+  - [4. Combinatorial DE tests](#4-combinatorial-de-tests)
+  - [5. Neuronal populations
+    clustering](#5-neuronal-populations-clustering)
+  - [6. Neurogenesis
+dynamics](#6-neurogenesis-dynamics)
 
-<img src="./suppl_files/dendrogram_highlights.png" width="100%">
+# 
 
-</p>
+## Figure shortcuts
 
-To reproduce the analysis, the files contained in R\_files, input\_files
-and dataset must to be downloaded from this repository. The UMI count
-matrix is available
-[there](https://dl.dropboxusercontent.com/s/ifrdqhea1fs6xuc/assayData.csv)
-(DropBox) and should be copied to the dataset folder.
+# 
+
+|                               Figure 1                               |                              Figure 2                              |                     Figure 3                     |                Figure 4                 |                        Figure 5                         |
+| :------------------------------------------------------------------: | :----------------------------------------------------------------: | :----------------------------------------------: | :-------------------------------------: | :-----------------------------------------------------: |
+|                    ![](./suppl_files/Figure1.png)                    |                   ![](./suppl_files/Figure2.png)                   |          ![](./suppl_files/Figure3.png)          |     ![](./suppl_files/Figure4.png)      |             ![](./suppl_files/Figure5.png)              |
+| [B](#step-1-map) [C](#tsne-plots) [D-E](#progenitor-and-neuron-maps) | [A-D](#population-ratio-dynamics) [E](#population-size-comparison) | [A](#gene-categories-highlights) [B](#claudin-3) | [A](#5-neuronal-populations-clustering) | [A](#gene-levels-per-subtypes) [B](#neurogenesis-waves) |
+
+|                                           Figure 6                                            |                                             Figure S1                                             |               Figure S2                |             Figure S3              |                 Figure S4                 |                                          Figure S5                                           |
+| :-------------------------------------------------------------------------------------------: | :-----------------------------------------------------------------------------------------------: | :------------------------------------: | :--------------------------------: | :---------------------------------------: | :------------------------------------------------------------------------------------------: |
+|                                ![](./suppl_files/Figure6.png)                                 |                                  ![](./suppl_files/FigureS1.png)                                  |    ![](./suppl_files/FigureS2.png)     |  ![](./suppl_files/FigureS3.png)   |      ![](./suppl_files/FigureS4.png)      |                               ![](./suppl_files/FigureS5.png)                                |
+| [A,B](#differentiation-plane) [C](#plot-neurogenesis-pattern) [D](#genes-profiles-per-domain) | [A-C](#1-load-and-hygienize-dataset) [D](#doublet-estimation) [E-F](#tsne-plots) [G](#step-2-map) | [A](#progenitor-patterning-prediction) | [A](#neuron-patterning-prediction) | [A-H](#5-neuronal-populations-clustering) | [A](#identify-gliogenic-and-neurogenic-pan-domain-modules) [B-D](#genes-profiles-per-domain) |
 
 # 
 
 ## Preliminaries
 
 # 
+
+To reproduce the analysis, the files contained in R\_files, input\_files
+and dataset must to be downloaded from this repository. The UMI count
+matrix is available
+[there](https://dl.dropboxusercontent.com/s/ifrdqhea1fs6xuc/assayData.csv)
+(DropBox) and should be copied to the dataset folder.
 
 The Antler package is required and can be installed with devtools.
 
@@ -250,6 +278,8 @@ PDF</a>
 
 </p>
 
+### Doublet estimation
+
 Estimate quantity of cell doublets by calculating the ratio of the
 expressed cell type markers in other populations
 
@@ -309,7 +339,7 @@ saveRDS(m, file=paste0(output_path, '/m_typed.rds'))
 # m = readRDS(paste0(output_path, '/m_typed.rds'))
 ```
 
-### Progenitor / Neuron Maps
+### Progenitor and Neuron Maps
 
 ``` r
 bubble_chart.df = data.frame(t(m_neural$getReadcounts('Raw')[unique(unlist(cell_partition$bothSteps_markers_neural)), ]), check.names=F) %>%
@@ -533,6 +563,8 @@ graphics.off()
 
 # 
 
+### Population ratio dynamics
+
 ``` r
 count.df = pData(m_neural$expressionSet) %>%
         dplyr::select(timepoint, Type_step1, Type_step2) %>%
@@ -591,6 +623,8 @@ graphics.off()
 <img src="./suppl_files/FIG2_DV_Population_Ratios.png" width="100%">
 
 </p>
+
+### Population size comparison
 
 Comparison with Kicheva et al.,
 2014
@@ -1069,6 +1103,8 @@ PDF</a>
 
 </p>
 
+### Claudin 3
+
 Plot Claudin3 (gene average per type1 X Dv X
 timepoint)
 
@@ -1088,7 +1124,7 @@ plotAveragePerTypeTimeDV(m_neural, gene = "Cldn3", basename="FIG3_Gene_expressio
 
 # 
 
-Identify gene module in each domain (neuron populations)
+### Identify gene module in each domain
 
 ``` r
 processed_subsets = list()
@@ -1141,8 +1177,7 @@ for(p in names(processed_subsets)) {
 saveRDS(m_pops, file=paste0(output_path, '/All_Clusters_topCorrDR_Neurons.rds'))
 ```
 
-Partition neurons from curated gene
-modules
+### Partition neurons from curated gene modules
 
 ``` r
 subclustering_params = rjson::fromJSON(file='./input_files/subclustering_typestep2_181106.json')
@@ -1449,6 +1484,8 @@ system2(command="gs", args=sprintf("-dBATCH -dNOPAUSE -q -sDEVICE=pdfwrite -sOut
 <a href="./suppl_files/FIG4_Domain_sub_clustering.pdf">Download all
 neuronal subclusters</a>
 
+### Gene levels per subtypes
+
 Gene average per cell
 type
 
@@ -1566,6 +1603,8 @@ saveRDS(m_neural, file=paste0(output_path, '/m_neural_subtypes.rds'))
 # m_neural = readRDS(file=paste0(output_path, '/m_neural_subtypes.rds'))
 ```
 
+### Neurogenesis waves
+
 Plot the two waves of neurogenesis in selected domains (Figure
 5B)
 
@@ -1649,7 +1688,7 @@ selected_cell_ids = unlist(lapply(
 m_RP$excludeCellsFromIds(setdiff(seq(m_RP$getNumberOfCells()), selected_cell_ids))
 m_RP$excludeUnexpressedGenes(min.cells=1, min.level=1, verbose=TRUE, data_status="Raw")
 
-# # Run GM identification with subsample cells
+# ### Run GM identification with subsample cells
 ```
 
 Identify gene modules with Antler’s topCorr dimensional reduction
@@ -1757,7 +1796,7 @@ saveRDS(selected_gms, paste0(output_path, '/DV_debiased_GMs.rds'))
 # selected_gms = readRDS(paste0(output_path, '/DV_debiased_GMs.rds'))
 ```
 
-### Differentiation plane / PCA plot
+### Differentiation plane
 
 ``` r
 m_RP$normalize("geometric_mean_sizeFactors")
@@ -1886,7 +1925,7 @@ plotNeurogenesisHeatmap(
 
 </p>
 
-Plot genes profiles per domain
+### Genes profiles per domain
 
 ``` r
 highlighted_genes = list(

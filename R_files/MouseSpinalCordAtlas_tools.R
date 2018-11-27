@@ -25,8 +25,6 @@ doCellPartition <- function(
                         name_unique=make.unique(name) # No need for rownames (?)
                         )
 
-  # ' `r literature_markers.df %>% dplyr::select(-c(gmap_step1, gmap_step2, DV, name, name_unique, Neural_pop_unique)) %>% knitr::kable(format="html", row.names=FALSE, caption="Published population markers used for data partition", escape=F) %>% kableExtra::kable_styling(bootstrap_options = "striped", font_size=12, full_width=F)`
-
   #' ### Step 1 / Progenitor vs Neuron vs extra populations
 
   cat(paste0("Step 1: Split macro populations (", paste0(unique(literature_markers.df$Type), collapse=", "), ") \n"))
