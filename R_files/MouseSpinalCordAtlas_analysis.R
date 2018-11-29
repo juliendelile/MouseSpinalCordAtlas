@@ -44,7 +44,7 @@
 #' ## Data availability
 #' ####################
 
-#' Those interested by processing the dataset independently should consider downloading:  
+#' Those interested in processing the dataset independently should consider downloading:  
 #'  
 #' - the [UMI raw count matrix](https://dl.dropboxusercontent.com/s/ifrdqhea1fs6xuc/assayData.csv) as outputted by the 10X Genomics cellranger pipeline.  
 #' - the [Annotated cell meta-data](https://github.com/juliendelile/MouseSpinalCordAtlas/raw/master/output/phenoData_annotated.csv) indicating the cells' sample times, replicate ids and types as determined by the following pipeline. "Type_step1" and "Type_step2" stands for the outcome of the 2-step partitioning algorithm (Section 2). "Neuron_subtypes" indicates the result of the per-neuronal-type subclustering (Section 5).  
