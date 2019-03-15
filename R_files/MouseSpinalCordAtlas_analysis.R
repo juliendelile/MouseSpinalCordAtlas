@@ -1,7 +1,7 @@
 
 #' ---
 #' title: "Mouse Spinal Cord Atlas - Analysis"
-#' subtitle: "Antler (commit `r getCommitShortName()`)"
+#' subtitle: "Antler"
 #' date: "`r format(Sys.time(), '%d %B, %Y')`"
 #' author: "Julien"
 #' output:
@@ -23,11 +23,9 @@
 
 #' <p align="center"><img src="./suppl_files/dendrogram_highlights.png" width="100%"></p>
 #'  
-#' **DISCLAIMER: This repository is under construction. The code is being refactored and ***has not been fully tested***. A finalized release will be available in short order.**  
-#'  
 #' This repository contains the R code used to analyse the single-cell RNA-seq dataset shown in:  
 #'  
-#' *Delile, J., Rayon, T., Melchionda, M., Edwards, A., Briscoe, J., & Sagner, A. (2018). Single cell transcriptomics reveals spatial and temporal dynamics of gene expression in the developing mouse spinal cord. BioRxiv, 472415. https://doi.org/10.1101/472415*
+#' *Delile, J., Rayon, T., Melchionda, M., Edwards, A., Briscoe, J., & Sagner, A. (2019). Single cell transcriptomics reveals spatial and temporal dynamics of gene expression in the developing mouse spinal cord. Development, dev-173807. https://doi.org/10.1242/dev.173807*
 #'  
 #' - [Data availability](#data-availability)
 #' - [Figure shortcuts](#figure-shortcuts)
@@ -38,6 +36,7 @@
 #' - [4. Combinatorial DE tests](#4-combinatorial-de-tests)
 #' - [5. Neuronal populations clustering](#5-neuronal-populations-clustering)
 #' - [6. Neurogenesis dynamics](#6-neurogenesis-dynamics)
+#' - [7. Export annotations](#7-export-annotations)
 #' 
 
 #' ####################
@@ -46,30 +45,37 @@
 
 #' Those interested in processing the dataset independently should consider downloading:  
 #'  
-#' - the [UMI raw count matrix](https://dl.dropboxusercontent.com/s/ifrdqhea1fs6xuc/assayData.csv) as outputted by the 10X Genomics cellranger pipeline.  
-#' - the [Annotated cell meta-data](https://github.com/juliendelile/MouseSpinalCordAtlas/raw/master/output/phenoData_annotated.csv) indicating the cells' sample times, replicate ids and types as determined by the following pipeline. "Type_step1" and "Type_step2" stands for the outcome of the 2-step partitioning algorithm (Section 2). "Neuron_subtypes" indicates the result of the per-neuronal-type subclustering (Section 5).  
+#' - the [UMI raw count matrix](https://www.ebi.ac.uk/arrayexpress/files/E-MTAB-7320/E-MTAB-7320.processed.1.zip) as outputted by the 10X Genomics cellranger pipeline.  
+#' - the [Annotated cell meta-data](https://github.com/juliendelile/MouseSpinalCordAtlas/raw/master/output/phenoData_annotated.csv) indicating the cells' sample times, replicate ids and types as determined by the following pipeline. "Type_step1" and "Type_step2" stands for the outcome of the 2-step partitioning algorithm (Section 2). "Neuron_subtypes" indicates the result of the per-neuronal-type subclustering (Section 5). "Pseudotime" contains the neurogenesis ordering coordinates (Section 6). 
 #'  
 
 #' ###################
 #' ## Figure shortcuts
 #' ###################
 
-#' | Figure 1 | Figure 2 | Figure 3 | Figure 4 | Figure 5 |
-#' | :------: | :------: | :------: | :------: | :------: |
-#' | ![](./suppl_files/Figure1.png)  | ![](./suppl_files/Figure2.png)  | ![](./suppl_files/Figure3.png)  | ![](./suppl_files/Figure4.png)  | ![](./suppl_files/Figure5.png)  |
-#' | [B](#step-1-map) [C](#tsne-plots) [D-E](#progenitor-and-neuron-maps)  | [A-D](#population-ratio-dynamics) [E](#population-size-comparison)  | [A](#gene-categories-highlights) [B](#claudin-3)  | [A](#5-neuronal-populations-clustering)  | [A](#gene-levels-per-subtypes) [B](#neurogenesis-waves)  |
+#' | Figure 1 | Figure 2 | Figure 3 | Figure 4 |
+#' | :------: | :------: | :------: | :------: |
+#' | ![](./suppl_files/Figure1.png)  | ![](./suppl_files/Figure2.png)  | ![](./suppl_files/Figure3.png)  | ![](./suppl_files/Figure4.png)  |
+#' | [B](#step-1-map) [C](#tsne-plots) [D-E](#progenitor-and-neuron-maps)  | [A-D](#population-ratio-dynamics) [E](#population-size-comparison)  | [A](#gene-categories-highlights) [B](#claudin-3)  | [A](#5-neuronal-populations-clustering)  |
 #'  
-#' | Figure 6 | Figure S1 | Figure S2 | Figure S3 | Figure S4 | Figure S5 |
-#' | :------: | :-------: | :-------: | :-------: | :-------: | :-------: |
-#' | ![](./suppl_files/Figure6.png)  | ![](./suppl_files/FigureS1.png)  | ![](./suppl_files/FigureS2.png)  | ![](./suppl_files/FigureS3.png)  | ![](./suppl_files/FigureS4.png)  | ![](./suppl_files/FigureS5.png)  |
-#' | [A,B](#differentiation-plane) [C](#plot-neurogenesis-pattern) [D](#genes-profiles-per-domain)  |  [A-C](#1-load-and-hygienize-dataset) [D](#doublet-estimation) [E-F](#tsne-plots) [G](#step-2-map) | [A](#progenitor-patterning-prediction)  | [A](#neuron-patterning-prediction)  | [A-H](#5-neuronal-populations-clustering)  | [A](#identify-gliogenic-and-neurogenic-pan-domain-modules) [B-D](#genes-profiles-per-domain) |
+#' | Figure 5 | Figure 6 | Figure 7 | Figure S1 |
+#' | :------: | :-------: | :-------: | :-------: |
+#' | ![](./suppl_files/Figure5.png)  | ![](./suppl_files/Figure6.png)  | ![](./suppl_files/Figure7.png)  | ![](./suppl_files/FigureS1.png)  |
+#' | [A](#gene-levels-per-subtypes) | [A](#neurogenesis-waves) | [A-B](#differentiation-plane) [C](#plot-neurogenesis-pattern) [D](#genes-profiles-per-domain)  |  [A-C](#1-load-and-hygienize-dataset) [D](#doublet-estimation) [E-F](#tsne-plots) [G](#step-2-map) |
+#'  
+#' | Figure S2 | Figure S3 | Figure S4 | Figure S6 |
+#' | :------: | :-------: | :-------: | :-------: |
+#' | ![](./suppl_files/FigureS2.png)  | ![](./suppl_files/FigureS3.png)  | ![](./suppl_files/FigureS4.png)  | ![](./suppl_files/FigureS6.png)  |
+#' | [A](#progenitor-patterning-prediction) | [A](#neuron-patterning-prediction)  | [A-H](#5-neuronal-populations-clustering)  | [A](#identify-gliogenic-and-neurogenic-pan-domain-modules) [B-D](#genes-profiles-per-domain) |
 
 #' #########################
 #' ## Analysis Preliminaries
 #' #########################
 
-#' To reproduce the analysis, the files contained in R_files, input_files and dataset must to be downloaded from this repository. The UMI count matrix is available [there](https://dl.dropboxusercontent.com/s/ifrdqhea1fs6xuc/assayData.csv) (DropBox) and should be copied to the dataset folder.
-#' 
+#' To reproduce the analysis, the files contained in R_files, input_files and dataset must to be downloaded from this repository (most conveniently using git clone). The UMI count matrix is zipped and must be uncompressed into the dataset folder.
+
+unzip("./dataset/UMI_count.tsv.zip", exdir="./dataset/")
+
 #' The Antler package is required and can be installed with devtools.
 
 devtools::install_github("juliendelile/Antler")
@@ -90,7 +96,7 @@ output_path = './output/'
 
 m = Antler$new(plot_folder=output_path, num_cores=4)
 
-m$loadDataset(folderpath="./dataset/")
+m$loadDataset(folderpath="./dataset/", phenoData_filename="phenoData.csv", assayData_filename="UMI_count.tsv")
 
 #' Annotate gene names
 
@@ -157,7 +163,7 @@ m$plotGeneModules(
                   displayed.geneset=NA,
                   use.dendrogram=NA,
                   display.clusters=NULL,
-                  file_settings=list(list(type='pdf', width=10, height=5)),
+                  file_settings=list(list(type='pdf', width=10, height=3)),
                   data_status=c('Normalized'),
                   gene_transformations='none',
                   display.legend=TRUE,
@@ -185,6 +191,67 @@ m$plotGeneModules(
 #' <p align="center"><img src="./suppl_files/FIG1_Map_Step1_dR.genemodules_Normalized_none.png" width="100%"></p>
 #'  
 
+white_rects = c(lapply(
+  list('Neuron', c('Blood', 'Hematopoeitic', 'Erythropoeitic', 'Erythrocytes', 'Erythrocytes II'), c('Mesoderm I', 'Mesoderm II', 'Mesoderm III', 'Mesoderm IV', 'Mesoderm V', 'Mesoderm VI', 'Myoblast'), c('Neural Crest I', 'Neural Crest II'), c('Neural crest neurons I', 'Neural crest neurons II', 'Neural crest neurons III')),
+  # list('Progenitor', 'Neuron', c('Blood', 'Hematopoeitic', 'Erythropoeitic', 'Erythrocytes', 'Erythrocytes II'), c('Mesoderm I', 'Mesoderm II', 'Mesoderm III', 'Mesoderm IV', 'Mesoderm V', 'Mesoderm VI', 'Myoblast'), c('Neural Crest I', 'Neural Crest II'), c('Neural crest neurons I', 'Neural crest neurons II', 'Neural crest neurons III'), c('Skin', 'NULL')),
+  function(l){
+    list(
+      xleft=min(which(names(cellcluster_sizes_cumsum_step1) %in% l)) %>% cellcluster_sizes_cumsum_step1[[.]],
+      xright= (max(which(names(cellcluster_sizes_cumsum_step1) %in% l))+1) %>% cellcluster_sizes_cumsum_step1[.],
+      ytop=0.5,
+      ybottom=length(unlist(m$dR$genemodules)) + 0.5,
+      color="white",
+      width=1
+      )
+    }),
+    lapply(
+      list(c('Tubb3', 'Elavl3'), c('Sox17', 'Fermt3', 'Klf1', 'Hemgn', 'Car2'), c('Foxc1', 'Foxc2', 'Twist1', 'Twist2', 'Meox1', 'Meox2', 'Myog'), 'Sox10', c('Tlx2', 'Six1')), function(l){
+      # list('Sox2', c('Tubb3', 'Elavl3'), c('Sox17', 'Fermt3', 'Klf1', 'Hemgn', 'Car2'), c('Foxc1', 'Foxc2', 'Twist1', 'Twist2', 'Meox1', 'Meox2', 'Myog'), 'Sox10', c('Tlx2', 'Six1'), 'Krt8'), function(l){
+      list(
+          xleft=0,
+          xright=max(cellcluster_sizes_cumsum_step1),
+          ytop=min(which(unlist(m$dR$genemodules) %in% l)) %>% {length(unlist(m$dR$genemodules)) - . + 1.5},
+          ybottom=max(which(unlist(m$dR$genemodules) %in% l)) %>% {length(unlist(m$dR$genemodules)) - . + 2.5},
+          color="white",
+          width=1
+          )
+    }))
+
+m$plotGeneModules(
+                  basename='FIG1_Map_Step1_whitelines',
+                  displayed.gms = c('dR.genemodules'),
+                  displayed.geneset=NA,
+                  use.dendrogram=NA,
+                  display.clusters=NULL,
+                  file_settings=list(list(type='pdf', width=10, height=3)),
+                  data_status=c('Normalized'),
+                  gene_transformations='none',
+                  display.legend=TRUE,
+                  cell.ordering=order(pData(m$expressionSet)$Type_step1), # works iff Type_step1 are factors
+                  extra_colors=cbind(
+                    "Step 1 Type"=pop_colors$Step1[as.character(pData(m$expressionSet)$Type_step1)]
+                    ),
+                  extra_legend=list("text"=c("", levels(pData(m$expressionSet)$Type_step1)), "colors"=c('white', getClusterColors()[seq(length(unique(pData(m$expressionSet)$Type_step1)))])),
+                  genemodules.palette=rep("white", length(m$dR$genemodules)),
+                  rect_overlay=c(white_rects, apply(which(pop_def_mask_step1==1, arr.ind=T), 1, function(x){
+                                       list(
+                                          xleft=cellcluster_sizes_cumsum_step1[[x[2]]],
+                                          xright=cellcluster_sizes_cumsum_step1[[x[2]+1]],
+                                          ytop=length(unlist(m$dR$genemodules)) - x[1] + 0.5,
+                                          ybottom=length(unlist(m$dR$genemodules)) - x[1]+1 + 0.5,
+                                          color="white", #"gray90",
+                                          width=0.5
+                                          )
+                                  })),
+                  pretty.params=list("size_factor"=3, "ngenes_per_lines" = 8, "side.height.fraction"=.3),
+                  curr_plot_folder=output_path
+                )
+
+#' <a href="./suppl_files/FIG1_Map_Step1_whitelines_dR.genemodules_Normalized_none.pdf">Download PDF</a>
+
+#' <p align="center"><img src="./suppl_files/FIG1_Map_Step1_whitelines_dR.genemodules_Normalized_none.png" width="100%"></p>
+#'  
+
 #' ### Step 2 Map
 
 cellcluster_sizes_cumsum_step2 = setNames(
@@ -197,15 +264,16 @@ m$dR$genemodules = as.list(rownames(bothSteps_mask))
 m$plotGeneModules(
                   basename='FIGS1_Map_Step2',
                   displayed.gms = c('dR.genemodules'),
-                  displayed.geneset=NA, # NA, plot all genes
+                  displayed.geneset="naked", # NA, plot all genes
                   use.dendrogram=NA,
                   display.clusters=NULL, #"State",
-                  file_settings=list(list(type='pdf', width=10, height=8)),
+                  file_settings=list(list(type='pdf', width=15, height=8)),
                   data_status=c('Raw'),
                   gene_transformations='logscaled',
                   display.legend=TRUE,
                   cell.ordering=order(pData(m$expressionSet)$Type_step2_unique),
                   extra_colors=cbind(
+                    "Timepoint"=pop_colors$timepoint[as.character(pData(m$expressionSet)$timepoint)],
                     "Step 1 Type"=pop_colors$Step1[as.character(pData(m$expressionSet)$Type_step1)],
                     "Step 2 Type"=pop_colors$Step2[as.character(pData(m$expressionSet)$Type_step2)]
                     ),
@@ -293,26 +361,35 @@ bubble_chart.df = data.frame(t(m_neural$getReadcounts('Raw')[unique(unlist(cell_
       dplyr::mutate(mean_norm_max=mean/max(mean), 
                     Type_step2 = factor(Type_step2, levels=rev(levels(Type_step2)))) %>%
       dplyr::ungroup() %>%
-      dplyr::mutate(partitionning=factor((function(x,y){unlist(lapply(seq(length(x)), function(i){markersToMask(cell_partition$bothSteps_markers_neural)[x[[i]],y[i]]}))})(as.character(genename), as.character(Type_step2)), levels=c(0,1)))
+      dplyr::mutate(partitionning=factor(
+            (function(x,y){
+              unlist(lapply(seq(length(x)),
+              function(i){
+                markersToMask(cell_partition$bothSteps_markers_neural)[x[[i]],y[i]]}))
+              }
+            )(as.character(genename), as.character(Type_step2)),
+         levels=c(0,1))) %>%
+      dplyr::mutate(fillcol = (as.integer(partitionning)-1) * as.integer(Type_step2))
 
-focus_red = "#D63624"
 unfocus_grey = "grey"
 
 pdf(paste0(output_path, '/FIG1_Progenitors_bubble_chart.pdf'), height=3.5, width=7, useDingbats=FALSE)
 p <- ggplot(bubble_chart.df %>% dplyr::filter(Type_step2 %in% levels(droplevels(pData(m_prog$expressionSet)$Type_step2)), genename %in% unlist(m_prog$dR$genemodules))) +
- geom_count(aes(x=genename, y=Type_step2, size=mean_norm_max, fill=partitionning), color="black", shape=21) + scale_size_area(max_size=5) + scale_fill_manual(breaks=c(0,1), values=c(unfocus_grey, focus_red)) + scale_x_discrete(position = "top") + xlab("") + ylab("") + theme_bw() + theme(axis.text.x = element_text(angle = 45, hjust = 0)) 
+ geom_count(aes(x=genename, y=Type_step2, size=mean_norm_max, fill=factor(fillcol)), color="black", shape=21) + scale_size_area(max_size=5) + scale_fill_manual(breaks=seq(0, length(levels(bubble_chart.df$Type_step2))), values=c(unfocus_grey, rev(unname(pop_colors$Step2[levels(pData(m_prog$expressionSet)$Type_step2)])))) + scale_x_discrete(position = "top") + xlab("") + ylab("") + theme_bw() + theme(axis.text.x = element_text(angle = 90, hjust = 0)) 
 print(p)
 graphics.off()
 
 #' <a href="./suppl_files/FIG1_Progenitors_bubble_chart.pdf">Download PDF</a>
 #' <p align="center"><img src="./suppl_files/FIG1_Progenitors_bubble_chart.png" width="100%"></p>
-#'  
+#'
 
 pdf(paste0(output_path, '/FIG1_Neurons_bubble_chart.pdf'), height=3.5, width=10, useDingbats=FALSE)
 p <- bubble_chart.df %>%
           dplyr::filter(Type_step2 %in% levels(droplevels(pData(m_neuron$expressionSet)$Type_step2)), genename %in% unlist(m_neuron$dR$genemodules)) %>%
           dplyr::mutate(genename=factor(genename, levels=unique(unlist(cell_partition$bothSteps_markers_neural[levels(droplevels(pData(m_neuron$expressionSet)$Type_step2))])))) %>%
-  ggplot(.) + geom_count(aes(x=genename, y=Type_step2, size=mean_norm_max, fill=partitionning), color="black", shape=21) + scale_size_area(max_size=5) + scale_fill_manual(breaks=c(0,1), values=c(unfocus_grey, focus_red)) + scale_x_discrete(position = "top") + xlab("") + ylab("") + theme_bw() + theme(axis.text.x = element_text(angle = 45, hjust = 0)) 
+  ggplot(.) + geom_count(aes(x=genename, y=Type_step2, size=mean_norm_max, fill=factor(fillcol)), color="black", shape=21) + scale_size_area(max_size=5) + scale_fill_manual(breaks=seq(0, length(levels(bubble_chart.df$Type_step2))), values=c(unfocus_grey, rev(unname(pop_colors$Step2[levels(pData(m_neuron$expressionSet)$Type_step2)])))) +
+  # scale_fill_manual(breaks=c(0,1), values=c(unfocus_grey, pop_colors$Step2)) + 
+  scale_x_discrete(position = "top") + xlab("") + ylab("") + theme_bw() + theme(axis.text.x = element_text(angle = 90, hjust = 0)) 
 print(p)
 graphics.off()
 
@@ -360,6 +437,14 @@ graphics.off()
 #' <p align="center"><img src="./suppl_files/FIG1_Map_Step1_tSNE_Normalized_Types.png" width="80%"></p>
 #'  
 
+png(paste0(output_path, '/FIG1_Map_Step1_tSNE_Normalized_Types_naked.png'), width=4000, height=4000, pointsize=75)
+vertex.plot.order = rev(order(pData(m$expressionSet)$Type_step1))
+plot(step1.tsne.coords[vertex.plot.order,], , col=pop_colors$Step1[as.character(pData(m$expressionSet)$Type_step1)][vertex.plot.order], pch=16, cex=.7, xlab = "", ylab = "", xaxt='n', yaxt='n', bty = "n")
+graphics.off()
+
+#' <p align="center"><img src="./suppl_files/FIG1_Map_Step1_tSNE_Normalized_Types_naked.png" width="80%"></p>
+#'  
+
 #' Progenitor only / Neuron only
 
 png(paste0(output_path, '/FIG1_Map_Step1_tSNE_Normalized_Progenitor_Focus.png'), width=2000, height=2000, pointsize=40)
@@ -395,17 +480,17 @@ for(tp in unique(pData(m$expressionSet)$timepoint)) {
 
   vertex.plot.order=c(setdiff(seq(m$getNumberOfCells()), tp_cell_ids), tp_cell_ids)
 
-  png(paste0(output_path, '/FIG1SUPP_Map_Step1_tSNE_Normalized_ReplicateIDs_', tp, '.png'), width=2000, height=2000, pointsize=40)
+  png(paste0(output_path, '/FIGS1_Map_Step1_tSNE_Normalized_ReplicateIDs_', tp, '.png'), width=2000, height=2000, pointsize=40)
   plot(step1.tsne.coords[vertex.plot.order, ], col=cell_colors[vertex.plot.order], pch=16, cex=.7, main=paste0('Replicates E', tp, ' (n=', length(rep_ids), ')'), xlab = "", ylab = "", xaxt='n', yaxt='n', bty = "n")
   graphics.off()
 
 }
 
-#' <p align="center"><img src="./suppl_files/FIG1SUPP_Map_Step1_tSNE_Normalized_ReplicateIDs_9.5.png" width="60%"></p>
-#' <p align="center"><img src="./suppl_files/FIG1SUPP_Map_Step1_tSNE_Normalized_ReplicateIDs_10.5.png" width="60%"></p>
-#' <p align="center"><img src="./suppl_files/FIG1SUPP_Map_Step1_tSNE_Normalized_ReplicateIDs_11.5.png" width="60%"></p>
-#' <p align="center"><img src="./suppl_files/FIG1SUPP_Map_Step1_tSNE_Normalized_ReplicateIDs_12.5.png" width="60%"></p>
-#' <p align="center"><img src="./suppl_files/FIG1SUPP_Map_Step1_tSNE_Normalized_ReplicateIDs_13.5.png" width="60%"></p>
+#' <p align="center"><img src="./suppl_files/FIGS1_Map_Step1_tSNE_Normalized_ReplicateIDs_9.5.png" width="60%"></p>
+#' <p align="center"><img src="./suppl_files/FIGS1_Map_Step1_tSNE_Normalized_ReplicateIDs_10.5.png" width="60%"></p>
+#' <p align="center"><img src="./suppl_files/FIGS1_Map_Step1_tSNE_Normalized_ReplicateIDs_11.5.png" width="60%"></p>
+#' <p align="center"><img src="./suppl_files/FIGS1_Map_Step1_tSNE_Normalized_ReplicateIDs_12.5.png" width="60%"></p>
+#' <p align="center"><img src="./suppl_files/FIGS1_Map_Step1_tSNE_Normalized_ReplicateIDs_13.5.png" width="60%"></p>
 #'  
 
 #' Plot Sex
@@ -423,11 +508,11 @@ cell_sex = pData(m$expressionSet) %>%
 
 sex_colors = c("Male"="cornflowerblue", "Female"="coral1")
 
-png(paste0(output_path, '/FIG1SUPP_Map_Step1_tSNE_Normalized_Sex.png'), width=2000, height=2000, pointsize=40)
+png(paste0(output_path, '/FIGS1_Map_Step1_tSNE_Normalized_Sex.png'), width=2000, height=2000, pointsize=40)
 plot(step1.tsne.coords, col=sex_colors[cell_sex], pch=16, cex=.4, main='Sex', xlab = "", ylab = "", xaxt='n', yaxt='n', bty = "n")
 graphics.off()
 
-#' <p align="center"><img src="./suppl_files/FIG1SUPP_Map_Step1_tSNE_Normalized_Sex.png" width="80%"></p>
+#' <p align="center"><img src="./suppl_files/FIGS1_Map_Step1_tSNE_Normalized_Sex.png" width="80%"></p>
 #'  
 
 #' ##############################
@@ -446,24 +531,29 @@ count.df = pData(m_neural$expressionSet) %>%
         dplyr::group_by(timepoint, Type_step1, Type_step2) %>%
         dplyr::tally()  %>%
         dplyr::group_by(timepoint) %>%
-        dplyr::add_tally()  %>%
+        dplyr::add_tally(name="nn")  %>%
         dplyr::mutate(freq_norm=n/nn) %>%
         dplyr::group_by(timepoint, Type_step1) %>%
-        dplyr::add_tally() %>%
+        dplyr::add_tally(name="nnn") %>%
         dplyr::mutate(freq_norm_type=n/nnn) %>%
         dplyr::ungroup()
 
 #' Display population size dynamics
 
-p2 <- ggplot(count.df[which(count.df$Type_step1=="Progenitor"),], aes(x=timepoint, y=freq_norm, fill=Type_step2, group=interaction(Type_step2, Type_step1))) + geom_area() + ggtitle("Progenitors") + ylab("") + xlab('') + theme(legend.position="none") + scale_fill_manual(breaks=levels(count.df$Type_step2), values=pop_colors$Step2[levels(count.df$Type_step2)], drop=F) + theme_minimal() + theme(legend.position="none")
+legacy_color = setNames(
+                  c('#d3aed6ff', '#b0cbd8ff', '#c0d2d9ff', '#d1d9daff', '#e3e2dbff', '#f4e9dcff', '#ffeeddff', '#f3e8d4ff', '#daddc3ff', '#c2d1b1ff', '#a7c59eff', '#8fb98cff', '#b2aed6ff', '#FED908', '#b0cbd8ff', '#c0d2d9ff', '#d1d9daff', '#e3e2dbff', '#f4e9dcff', '#ffeeddff', '#f3e8d4ff', '#daddc3ff', '#c2d1b1ff', '#c2d1b1ff', '#a7c59eff', '#8fb98cff'),
+                  c('RP', 'dp1', 'dp2', 'dp3', 'dp4', 'dp5', 'dp6', 'p0', 'p1', 'p2', 'pMN', 'p3', 'FP', 'Null_Progenitor', 'dl1', 'dl2', 'dl3', 'dl4', 'dl5', 'dl6', 'V0', 'V1', 'V2a', 'V2b', 'MN', 'V3')
+        )
 
-p3 <- ggplot(count.df[which(count.df$Type_step1=="Neuron"),], aes(x=timepoint, y=freq_norm, fill=Type_step2, group=interaction(Type_step2, Type_step1))) + geom_area() + ggtitle("Neurons") + ylab("") + xlab('') + scale_fill_manual(breaks=levels(count.df$Type_step2), values=pop_colors$Step2[levels(count.df$Type_step2)], drop=F) + theme_classic() + theme_minimal() + theme(legend.position="none")
+p2 <- ggplot(count.df[which(count.df$Type_step1=="Progenitor"),], aes(x=timepoint, y=freq_norm, fill=Type_step2, group=interaction(Type_step2, Type_step1))) + geom_area() + ggtitle("Progenitors") + ylab("") + xlab('') + theme(legend.position="none") + scale_fill_manual(breaks=levels(count.df$Type_step2), values=legacy_color[levels(count.df$Type_step2)], drop=F) + theme_minimal() + theme(legend.position="none")
 
-p4 <- ggplot(count.df[which(count.df$Type_step1=="Progenitor"),], aes(x=timepoint, y=freq_norm_type, fill=Type_step2, group=interaction(Type_step2, Type_step1))) + geom_area() + ggtitle("Progenitor Ratios") + ylab("") + xlab('') + scale_fill_manual(breaks=levels(count.df$Type_step2), values=pop_colors$Step2[levels(count.df$Type_step2)], drop=F) + theme_minimal() + theme(legend.position="none")
+p3 <- ggplot(count.df[which(count.df$Type_step1=="Neuron"),], aes(x=timepoint, y=freq_norm, fill=Type_step2, group=interaction(Type_step2, Type_step1))) + geom_area() + ggtitle("Neurons") + ylab("") + xlab('') + scale_fill_manual(breaks=levels(count.df$Type_step2), values=legacy_color[levels(count.df$Type_step2)], drop=F) + theme_classic() + theme_minimal() + theme(legend.position="none")
 
-p5 <- ggplot(count.df[which(count.df$Type_step1=="Neuron"),], aes(x=timepoint, y=freq_norm_type, fill=Type_step2, group=interaction(Type_step2, Type_step1))) + geom_area() + ggtitle("Neuron Ratios") + ylab("") + xlab('') + scale_fill_manual(breaks=levels(count.df$Type_step2), values=pop_colors$Step2[levels(count.df$Type_step2)], drop=F) + theme_minimal() + theme(legend.position="none")
+p4 <- ggplot(count.df[which(count.df$Type_step1=="Progenitor"),], aes(x=timepoint, y=freq_norm_type, fill=Type_step2, group=interaction(Type_step2, Type_step1))) + geom_area() + ggtitle("Progenitor Ratios") + ylab("") + xlab('') + scale_fill_manual(breaks=levels(count.df$Type_step2), values=legacy_color[levels(count.df$Type_step2)], drop=F) + theme_minimal() + theme(legend.position="none")
 
-p1 <- ggplot(count.df[which(count.df$Type_step1 %in% c("Progenitor", "Neuron")),], aes(x=timepoint, y=freq_norm, fill=Type_step2, group=interaction(Type_step1, Type_step2), alpha=Type_step1)) + geom_area(color='black', size=.05) + ggtitle("Neural Ratios") + ylab("") + xlab('') + scale_fill_manual(breaks=levels(count.df$Type_step2), values=pop_colors$Step2[levels(count.df$Type_step2)], drop=F) + scale_alpha_manual(breaks=c("Progenitor", "Neuron"), values=c(0.5, 1)) + theme(legend.key.width=unit(0.15,"cm"), legend.key.height=unit(0.15,"cm"), legend.position = c(0.6, 0.6)) + guides(fill=guide_legend(ncol=3))
+p5 <- ggplot(count.df[which(count.df$Type_step1=="Neuron"),], aes(x=timepoint, y=freq_norm_type, fill=Type_step2, group=interaction(Type_step2, Type_step1))) + geom_area() + ggtitle("Neuron Ratios") + ylab("") + xlab('') + scale_fill_manual(breaks=levels(count.df$Type_step2), values=legacy_color[levels(count.df$Type_step2)], drop=F) + theme_minimal() + theme(legend.position="none")
+
+p1 <- ggplot(count.df[which(count.df$Type_step1 %in% c("Progenitor", "Neuron")),], aes(x=timepoint, y=freq_norm, fill=Type_step2, group=interaction(Type_step1, Type_step2), alpha=Type_step1)) + geom_area(color='black', size=.05) + ggtitle("Neural Ratios") + ylab("") + xlab('') + scale_fill_manual(breaks=levels(count.df$Type_step2), values=legacy_color[levels(count.df$Type_step2)], drop=F) + scale_alpha_manual(breaks=c("Progenitor", "Neuron"), values=c(0.5, 1)) + theme(legend.key.width=unit(0.15,"cm"), legend.key.height=unit(0.15,"cm"), legend.position = c(0.6, 0.6)) + guides(fill=guide_legend(ncol=3))
 # print(p1)
 # graphics.off()
 
@@ -644,7 +734,7 @@ tf_list = getTFs()
 
 interesting_genes = sort(setdiff(unlist(m_neuron_combDE$dR$genemodules), sort(unique(unlist(cell_partition$bothSteps_markers_neural)))))
 
-plot_basename_neuron = paste0('FIG3SUPP_Neural_DE_Combinatorial_Neurons_NegBinResampled')
+plot_basename_neuron = paste0('FIGS3_Neural_DE_Combinatorial_Neurons_NegBinResampled')
 
 m_neuron_combDE$plotGeneModules(
               basename=plot_basename_neuron,
@@ -695,16 +785,16 @@ m_neuron_combDE$plotGeneModules(
               curr_plot_folder=output_path
             )
 
-#' <a href="./suppl_files/FIG3SUPP_Neural_DE_Combinatorial_Neurons_NegBinResampled_dR.genemodules_Raw_logscaled.pdf">Download PDF</a>
+#' <a href="./suppl_files/FIGS3_Neural_DE_Combinatorial_Neurons_NegBinResampled_dR.genemodules_Raw_logscaled.pdf">Download PDF</a>
 
-#' <p align="center"><img src="./suppl_files/FIG3SUPP_Neural_DE_Combinatorial_Neurons_NegBinResampled_dR.genemodules_Raw_logscaled.png" width="100%"></p>
+#' <p align="center"><img src="./suppl_files/FIGS3_Neural_DE_Combinatorial_Neurons_NegBinResampled_dR.genemodules_Raw_logscaled.png" width="100%"></p>
 #'  
 
 #' Export predicted genes to file
 
 m_neuron_combDE$writeGeneModules(basename=plot_basename_neuron, gms='dR.genemodules')
 
-#' <a href="./suppl_files/FIG3SUPP_Neural_DE_Combinatorial_Neurons_NegBinResampled_dR.genemodules.txt">Download predicted genes</a>
+#' <a href="./suppl_files/FIGS3_Neural_DE_Combinatorial_Neurons_NegBinResampled_dR.genemodules.txt">Download predicted genes</a>
 #'  
 
 
@@ -799,7 +889,7 @@ tf_list = getTFs()
 
 interesting_genes = sort(setdiff(unlist(m_prog_combDE$dR$genemodules), sort(unique(unlist(cell_partition$bothSteps_markers_neural)))))
 
-plot_basename_prog = paste0('FIG3SUPP_Neural_DE_Combinatorial_Progenitors_NegBinResampledTEST')
+plot_basename_prog = paste0('FIGS2_Neural_DE_Combinatorial_Progenitors_NegBinResampled')
 
 m_prog_combDE$plotGeneModules(
               basename=plot_basename_prog,
@@ -850,16 +940,16 @@ m_prog_combDE$plotGeneModules(
               curr_plot_folder=output_path
             )
 
-#' <a href="./suppl_files/FIG3SUPP_Neural_DE_Combinatorial_Progenitors_NegBinResampled_dR.genemodules_Raw_logscaled.pdf">Download PDF</a>
+#' <a href="./suppl_files/FIGS2_Neural_DE_Combinatorial_Progenitors_NegBinResampled_dR.genemodules_Raw_logscaled.pdf">Download PDF</a>
 
-#' <p align="center"><img src="./suppl_files/FIG3SUPP_Neural_DE_Combinatorial_Progenitors_NegBinResampled_dR.genemodules_Raw_logscaled.png" width="100%"></p>
+#' <p align="center"><img src="./suppl_files/FIGS2_Neural_DE_Combinatorial_Progenitors_NegBinResampled_dR.genemodules_Raw_logscaled.png" width="100%"></p>
 #'  
 
 #' Export predicted genes to file
 
 m_prog_combDE$writeGeneModules(basename=plot_basename_prog, gms='dR.genemodules')
 
-#' <a href="./suppl_files/FIG3SUPP_Neural_DE_Combinatorial_Progenitors_NegBinResampled_dR.genemodules.txt">Download predicted genes</a>
+#' <a href="./suppl_files/FIGS2_Neural_DE_Combinatorial_Progenitors_NegBinResampled_dR.genemodules.txt">Download predicted genes</a>
 #'  
 
 #' ### Gene categories highlights
@@ -1299,18 +1389,21 @@ p <- subtypes_gene_avg %>%
               ) %>%
         ggplot(.) +
          geom_count(aes(x=subtype_name, y=genename, size=mean_norm_max, fill=type), color='gray80', stroke=0, shape=21) +
-         scale_size_area(max_size=3) +
+         scale_size_area(max_size=5) +
          scale_fill_manual(breaks=names(pop_colors$Step2), values=pop_colors$Step2) +
          # scale_color_manual(breaks=names(pop_colors$Step2), values=pop_colors$Step2) +
-         scale_x_discrete(position = "top") + xlab("") + ylab("") +
-         theme_bw() + theme(axis.text.x = element_text(angle = 45, hjust = 0, size=8)) 
+         xlab("") + ylab("") +
+         coord_flip() + 
+         # scale_x_discrete(position = "bottom") + 
+         scale_y_discrete(position = "bottom") + 
+         theme_bw() + theme(axis.text.x = element_text(angle = 90, hjust = 0))#, size=8)) 
 
-pdf(paste0(output_path, '/FIG5_subclustering_map_', mgnames,'.pdf'), height=3, width=10, useDingbats=FALSE)
+pdf(paste0(output_path, '/FIG5_subclustering_map_', mgnames,'_vertical.pdf'), height=10, width=6, useDingbats=FALSE)
 print(p)
 graphics.off()
 
-#' <a href="./suppl_files/FIG5_subclustering_map_custom.pdf">Download PDF</a>
-#' <p align="center"><img src="./suppl_files/FIG5_subclustering_map_custom.png" width="100%"></p>
+#' <a href="./suppl_files/FIG5_subclustering_map_custom_vertical.pdf">Download PDF</a>
+#' <p align="center"><img src="./suppl_files/FIG5_subclustering_map_custom_vertical.png" width="100%"></p>
 #'  
 
 mgnames = "all"
@@ -1358,26 +1451,13 @@ pData(m_neural$expressionSet)$subtypes[which(pData(m_neural$expressionSet)$subty
 saveRDS(m_neural, file=paste0(output_path, '/m_neural_subtypes.rds'))
 # m_neural = readRDS(file=paste0(output_path, '/m_neural_subtypes.rds'))
 
-#' Export complete dataset meta-data, including all cell types
-
-full_pData = read.table('./dataset/phenoData.csv', header=TRUE, sep="\t", row.names=1, as.is=TRUE, stringsAsFactors=F, check.names=FALSE)
-
-full_pData$Type_step1 = rep("Outliers", nrow(full_pData))
-full_pData[rownames(pData(m$expressionSet)), "Type_step1"] <- as.character(pData(m$expressionSet)$Type_step1)
-full_pData$Type_step2 = rep("Outliers", nrow(full_pData))
-full_pData[rownames(pData(m$expressionSet)), "Type_step2"] <- as.character(pData(m$expressionSet)$Type_step2)
-full_pData$Neuron_subtypes = rep(NA, nrow(full_pData))
-full_pData[rownames(pData(m_neural$expressionSet)), "Neuron_subtypes"] <- as.character(pData(m_neural$expressionSet)$subtypes)
-
-write.table(x=full_pData, file='./output/phenoData_annotated.csv', sep='\t', row.names=TRUE, quote=TRUE, col.names=NA)
-
 #' ### Neurogenesis waves
 
-#' Plot the two waves of neurogenesis in selected domains (Figure 5B)
+#' Plot the two waves of neurogenesis in selected domains (Figure 6A)
 
 gene_list = c('Onecut2', 'Pou2f2', 'Zfhx3', 'Zfhx4', 'Nfia', 'Nfib', 'Neurod2', 'Neurod6')
 
-domain_list = c('V3', 'MN', 'V2b', 'V2a', 'V1', 'V0')
+domain_list = rev(c('V3', 'MN', 'V2b', 'V2a', 'V1', 'V0', "dl6", "dl5", "dl4", "dl3", "dl2", "dl1"))
 
 dot.input2 = pData(m_neural$expressionSet) %>%
               tibble::rownames_to_column("cell_name") %>%
@@ -1392,7 +1472,7 @@ dot.input2 = pData(m_neural$expressionSet) %>%
             dplyr::ungroup() %>%
             dplyr::mutate(
                         gene_name=factor(gene_name, levels=gene_list),
-                        Type_step2=factor(Type_step2, levels=rev(levels(Type_step2)))
+                        Type_step2=factor(Type_step2, levels=domain_list)
                         )
 
 # dot.input2[which(dot.input2$count < min.cells), "mean"] <- NA
@@ -1400,21 +1480,21 @@ dot.input2 = pData(m_neural$expressionSet) %>%
 dot.input2 <- dot.input2 %>% dplyr::filter(Type_step2 %in% domain_list)
 
 gg <- ggplot(dot.input2, aes(x = factor(timepoint), y = gene_name)) +
-    geom_count(aes(size = mean, color = factor(timepoint))) +
-    facet_wrap(~ unlist(dot.input2$Type_step2), nrow=1) +
-    scale_size_area(max_size = 7) +
-    scale_color_manual(values=pop_colors$timepoint) + 
+    geom_count(aes(size = mean, fill = factor(timepoint)), color="black", shape=21) +
+    facet_wrap(~ unlist(dot.input2$Type_step2), nrow=2) +
+    scale_size_area(max_size = 5) +
+    scale_fill_manual(values=pop_colors$timepoint) + 
     theme_bw() +
     ylab("Genes") +
-    xlab("embryonic days") +
+    xlab("Embryonic days") +
     guides(color = 'none')
 
-pdf(paste0(output_path, "FIG5_Domain_dynamics_ventral.pdf"), width = 10, height =2.5, useDingbats = FALSE)
+pdf(paste0(output_path, "FIG6_Domain_dynamics.pdf"), width = 10, height = 4, useDingbats = FALSE)
 print(gg)
 graphics.off()
 
-#' <a href="./suppl_files/FIG5_Domain_dynamics_ventral.pdf">Download PDF</a>
-#' <p align="center"><img src="./suppl_files/FIG5_Domain_dynamics_ventral.png" width="100%"></p>
+#' <a href="./suppl_files/FIG6_Domain_dynamics.pdf">Download PDF</a>
+#' <p align="center"><img src="./suppl_files/FIG6_Domain_dynamics.png" width="100%"></p>
 #'  
 
 #' ##########################
@@ -1563,13 +1643,13 @@ pca_res_all_x[, 1] <- - pca_res_all_x[, 1]
 
 pData(m_neural$expressionSet)$Pseudotime = pca_res_all_x[, 1] %>% {100*((. - min(.))/(max(.) - min(.)))}
 
-plotNeuroSpace(cell_domains=2:12, genelist=c('Lin28a', 'Fabp7', 'Sox2', "Tubb3", "Elavl3"), basename="Fig6A_")
-# plotNeuroSpace(cell_domains=2, genelist=c('Sox2', "Tubb3"), basename="Fig6B_2_")
-# plotNeuroSpace(cell_domains=3, genelist=c('Sox2', "Tubb3"), basename="Fig6B_3_")
-# plotNeuroSpace(cell_domains=12, genelist=c('Sox2', "Tubb3"), basename="Fig6B_12_")
+plotNeuroSpace(cell_domains=2:12, genelist=c('Lin28a', 'Fabp7', 'Sox2', "Tubb3", "Elavl3"), basename="Fig7A_")
+# plotNeuroSpace(cell_domains=2, genelist=c('Sox2', "Tubb3"), basename="Fig7B_2_")
+# plotNeuroSpace(cell_domains=3, genelist=c('Sox2', "Tubb3"), basename="Fig7B_3_")
+# plotNeuroSpace(cell_domains=12, genelist=c('Sox2', "Tubb3"), basename="Fig7B_12_")
 
-#' <a href="./suppl_files/Fig6A_PCA_HEXplot.pdf">Download PDF</a>
-#' <p align="center"><img src="./suppl_files/Fig6A_PCA_HEXplot.png" width="100%"></p>
+#' <a href="./suppl_files/Fig7A_PCA_HEXplot.pdf">Download PDF</a>
+#' <p align="center"><img src="./suppl_files/Fig7A_PCA_HEXplot.png" width="100%"></p>
 #'  
 
 #' ### Generate pseudotime profiles
@@ -1638,15 +1718,15 @@ pt_genes.list = pt_genes.df %>% dplyr::arrange(desc(DV)) %>% .$gene_list %>% unl
 plotNeurogenesisHeatmap(
                 bif_dataset_whole_log %>% is.na %>% replace(bif_dataset_whole_log, ., 0),
                 pt_clusters_reordered = pt_genes.list,
-                plotfullname=paste0(output_path, '/FIG6C_Neurogenesis_heatmap.pdf'),
+                plotfullname=paste0(output_path, '/FIG7C_Neurogenesis_heatmap.pdf'),
                 num_pt=num_pt,
                 plotted_DV=2:12,
                 zscore_cap = NULL,
                 dv_colors=pop_colors$DV
       )
 
-#' <a href="./suppl_files/FIG6C_Neurogenesis_heatmap.pdf">Download PDF</a>
-#' <p align="center"><img src="./suppl_files/FIG6C_Neurogenesis_heatmap.png" width="100%"></p>
+#' <a href="./suppl_files/FIG7C_Neurogenesis_heatmap.pdf">Download PDF</a>
+#' <p align="center"><img src="./suppl_files/FIG7C_Neurogenesis_heatmap.png" width="100%"></p>
 #'  
 
 #' ### Genes profiles per domain
@@ -1702,6 +1782,29 @@ for(n in names(highlighted_genes)){
 #' <p align="center"><img src="./suppl_files/PT_profile_dp3-dl3.png" width="60%"></p>
 #' <p align="center"><img src="./suppl_files/PT_profile_dp2-dl2.png" width="60%"></p>
 #'  
+
+
+#' ########################
+#' ## 7. Export annotations
+#' ########################
+
+#' Export complete dataset meta-data, including all cell types
+
+full_pData = read.table('./dataset/phenoData.csv', header=TRUE, sep="\t", row.names=1, as.is=TRUE, stringsAsFactors=F, check.names=FALSE)
+
+full_pData$Type_step1 = rep("Outliers", nrow(full_pData))
+full_pData[rownames(pData(m$expressionSet)), "Type_step1"] <- as.character(pData(m$expressionSet)$Type_step1)
+full_pData$Type_step2 = rep("Outliers", nrow(full_pData))
+full_pData[rownames(pData(m$expressionSet)), "Type_step2"] <- as.character(pData(m$expressionSet)$Type_step2)
+full_pData[rownames(pData(m$expressionSet)), "Type_step2_unique"] <- as.character(pData(m$expressionSet)$Type_step2_unique)
+full_pData$DV = rep(NA, nrow(full_pData))
+full_pData[rownames(pData(m_neural$expressionSet)), "DV"] <- as.character(pData(m_neural$expressionSet)$DV)
+full_pData$Neuron_subtypes = rep(NA, nrow(full_pData))
+full_pData[rownames(pData(m_neural$expressionSet)), "Neuron_subtypes"] <- as.character(pData(m_neural$expressionSet)$subtypes)
+full_pData$Pseudotime = rep(NA, nrow(full_pData))
+full_pData[rownames(pData(m_neural$expressionSet)), "Pseudotime"] <- as.character(pData(m_neural$expressionSet)$Pseudotime)
+
+write.table(x=full_pData[, c('timepoint', 'replicate_id', 'Type_step1', 'Type_step2', 'Type_step2_unique', 'DV', 'Neuron_subtypes', 'Pseudotime')], file='./output/phenoData_annotated.csv', sep='\t', row.names=TRUE, quote=TRUE, col.names=NA)
 
 #' `r knitr::knit_exit()`
 #'  

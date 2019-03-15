@@ -813,8 +813,8 @@ plotAveragePerTypeTimeDV <- function(currm, gene, threshold = 10, basename=NULL)
   dot.input[which(dot.input$count < threshold), "mean"] <- NA
 
   gg <- ggplot(data = dot.input, aes(x = factor(timepoint), y = DV_name)) +
-      geom_count(aes(size = mean, color=factor(timepoint))) +
-      scale_colour_manual(values=colorRampPalette(c("pink", "red"))(n=5)) +
+      geom_count(aes(size = mean, fill=factor(timepoint)), color="black", shape=21) +
+      scale_fill_manual(values=colorRampPalette(c("pink", "red"))(n=5)) +
       scale_size_area(max_size = 20) +
       theme_bw() +
       facet_wrap(~ unlist(dot.input$Type_step1)) +
@@ -937,9 +937,8 @@ plotNeuroSpace <- function(
 
 
 
-plotNeurogenesisHeatmap <- function(df.merge, num_pt, plotted_DV, pt_clusters_reordered, plotfullname, zscore_cap = 3, dv_colors) {
+plotNeurogenesisHeatmap <- function(df.merge, num_pt, plotted_DV, pt_clusters_reordered, plotfullname, zscore_cap = 3, dv_colors, width=6, height=as.integer(0.01*length(unlist(pt_clusters_reordered)) + 6)) {
 
- 
   col_ordered = paste0("1_", seq(num_pt))
   col_ordered_all <- unlist(lapply(plotted_DV, function(dv) paste0(dv, "_", col_ordered)))
   pt_cluster_id_from_gene_names = setNames(
@@ -975,7 +974,7 @@ plotNeurogenesisHeatmap <- function(df.merge, num_pt, plotted_DV, pt_clusters_re
 
   }
   
-  pdf(plotfullname, width=6, height=as.integer(0.01*length(unlist(pt_clusters_reordered)) + 6))
+  pdf(plotfullname, width=width, height=height)
   heatmap.3(
     bif_dataset_whole,
     Colv = FALSE,
@@ -999,7 +998,7 @@ plotNeurogenesisHeatmap <- function(df.merge, num_pt, plotted_DV, pt_clusters_re
     # colsep=NULL,
     sepcolor = "black",
     sepwidth = c(0.001, 0.001),
-    cexRow = 3*(0 + .5/log10(nrow(bif_dataset_whole))),
+    cexRow = 1*(0 + .5/log10(nrow(bif_dataset_whole))),
     rect_overlay = c(0, cumsum(table(sort(rep(
                       # sort(unique(bif_dataset$DV)),
                       plotted_DV,

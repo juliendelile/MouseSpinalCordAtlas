@@ -1,0 +1,360 @@
+dl1 / down: Lhx9, Grem2, Barhl1, Atoh1, Rassf4, Nkd1, Hoxb3os
+dl1-V3 / down: 
+dl1-MN / down: Sct
+dl1-V2b / down: 
+dl1-V0 / down: 
+dl1-dl2 / down: 
+dl1-dl5-V2a / down: E2f1
+dl1-dl4-dl6 / down: 
+dl1-dl2-V3 / down: 
+dl1-V2b-MN-V3 / down: 
+dl1-V0-V1-V3 / down: 
+dl1-dl6-V0-V3 / down: 
+dl1-dl2-V0-MN / down: 
+dl1-dl2-V0-V1 / down: 
+dl1-dl2-dl3-dl5 / down: 
+dl1-dl4-dl5-dl6-V3 / down: 
+dl1-dl3-dl5-V0-V3 / down: 
+dl1-dl2-dl4-dl5-V2a / down: 
+dl1-dl2-dl3-V0-V1 / down: Crabp1
+dl1-dl2-dl3-dl5-V3 / down: 
+dl1-dl2-dl3-dl5-dl6 / down: 
+dl1-dl2-dl3-dl4-dl5 / down: 
+dl1-dl3-dl6-V2a-V2b-MN / down: 
+dl1-dl3-dl6-V0-V1-V2b / down: 
+dl1-dl2-dl4-dl6-V0-V3 / down: 
+dl1-dl2-dl3-V2a-MN-V3 / down: 
+dl1-V0-V1-V2a-V2b-MN-V3 / down: 
+dl1-dl2-dl3-dl5-V0-V2a-V3 / down: 
+dl1-dl2-dl3-dl5-V0-V2a-MN-V3 / down: 
+dl1-dl2-dl3-dl4-dl5-dl6-V0-V3 / down: 
+dl1-dl2-dl6-V0-V1-V2a-V2b-MN-V3 / down: 
+dl1-dl2-dl3-dl5-V0-V2a-V2b-MN-V3 / down: 
+dl1-dl2-dl3-dl5-dl6-V0-V2a-V2b-MN-V3 / down: 
+dl1-dl2-dl3-dl4-dl5-V1-V2a-V2b-MN-V3 / down: Btbd17
+dl2-V1 / down: Hmx2
+dl2-dl3 / down: 
+dl2-V1-V2a / down: 
+dl2-dl6-MN / down: 
+dl2-V1-V2a-V2b / down: Neurog1
+dl2-V0-V1-V3 / down: Arl4d
+dl2-V0-V1-V2b / down: 
+dl2-dl5-V2a-MN / down: 
+dl2-dl4-dl6-V3 / down: 
+dl2-dl3-dl5-V3 / down: 
+dl2-dl3-dl4-dl5 / down: 
+dl2-dl6-V0-V1-V2b / down: 
+dl2-dl4-dl6-V0-V1-V2b / down: Lhx1, Lhx1os
+dl2-dl3-V1-V2a-MN-V3 / down: Neurod4
+dl2-dl6-V1-V2a-V2b-MN-V3 / down: 
+dl2-dl3-dl5-V1-V2a-V2b-MN / down: 
+dl2-dl6-V0-V1-V2a-V2b-MN-V3 / down: S100a16, Fignl2
+dl2-dl3-dl4-dl6-V0-V1-V2a-V2b-MN-V3 / down: 
+dl3 / down: 
+dl3-V3 / down: 
+dl3-MN / down: Isl1
+dl3-V1 / down: Otp
+dl3-V0 / down: Arg1
+dl3-dl5 / down: 
+dl3-V0-V3 / down: Ppp1r17
+dl3-dl6-MN / down: 
+dl3-dl5-dl6 / down: 
+dl3-dl5-MN-V3 / down: 
+dl3-dl4-dl6-V1-MN / down: 
+dl4 / down: 
+dl4-V0 / down: 
+dl4-V1-V2a / down: 
+dl4-dl6-MN / down: 
+dl4-dl6-V2b / down: 
+dl4-dl6-V1 / down: 
+dl4-dl5-dl6 / down: 
+dl4-dl6-V1-MN / down: 
+dl4-dl6-V1-V2b / down: 
+dl4-dl6-V1-V2b-MN / down: 
+dl4-dl6-V0-V1-MN / down: 
+dl4-dl6-V0-V1-V2b-V3 / down: 
+dl4-dl6-V0-V2a-V2b-MN-V3 / down: 
+dl5 / down: Pax3, Gsx2
+dl5-V2a-V2b / down: Ascl1
+dl5-dl6-V1 / down: 
+dl5-V0-V2a-V2b / down: Lockd
+dl5-V1-V2a-V2b-MN / down: 
+dl6 / down: Dmrt3
+dl6-MN / down: 
+dl6-V2b / down: 
+dl6-V2a / down: 
+dl6-V1 / down: Xrcc5
+dl6-V0 / down: 
+dl6-MN-V3 / down: 
+dl6-V2b-MN / down: 
+dl6-V1-V2a / down: 
+dl6-V0-MN / down: 
+dl6-V0-V1 / down: 
+dl6-V2b-MN-V3 / down: 
+dl6-V2a-V2b-MN / down: 
+dl6-V0-V2b-V3 / down: 
+dl6-V0-V1-V2b / down: 
+dl6-V0-V1-V2b-MN-V3 / down: 
+dl6-V0-V1-V2a-V2b-MN-V3 / down: 
+V0 / down: Hbb-bh1, Hbb-y, Hba-x
+V0-MN / down: Cldn3
+V0-V2b / down: 
+V0-V2a / down: 
+V0-V1 / down: 
+V0-V2a-V2b / down: 
+V1 / down: En1, Ass1
+V1-V2b-MN / down: Lmo1
+V1-V2a-V2b-V3 / down: 
+V2a / down: 
+V2a-V3 / down: 
+V2a-MN / down: 
+V2a-V2b / down: Vsx1, Fam183b
+V2a-MN-V3 / down: 
+V2a-V2b-V3 / down: 
+V2a-V2b-MN-V3 / down: 
+V2b / down: Zdbf2, Gata2
+V2b-V3 / down: Ccdc182
+V2b-MN / down: 
+MN / down: Sema3d, Angpt1
+MN-V3 / down: 
+V3 / down: Neurog3
+dl1 / up: 
+dl1-V3 / up: 
+dl1-MN / up: 
+dl1-V2b / up: 
+dl1-V0 / up: Cbln2
+dl1-dl2 / up: 
+dl1-dl5-V2a / up: 
+dl1-dl4-dl6 / up: Chmp2b
+dl1-dl2-V3 / up: 
+dl1-V2b-MN-V3 / up: 
+dl1-V0-V1-V3 / up: Synpr
+dl1-dl6-V0-V3 / up: 
+dl1-dl2-V0-MN / up: 
+dl1-dl2-V0-V1 / up: 
+dl1-dl2-dl3-dl5 / up: 
+dl1-dl4-dl5-dl6-V3 / up: 
+dl1-dl3-dl5-V0-V3 / up: 
+dl1-dl2-dl4-dl5-V2a / up: 
+dl1-dl2-dl3-V0-V1 / up: 
+dl1-dl2-dl3-dl5-V3 / up: 
+dl1-dl2-dl3-dl5-dl6 / up: 
+dl1-dl2-dl3-dl4-dl5 / up: Zic1
+dl1-dl3-dl6-V2a-V2b-MN / up: 
+dl1-dl3-dl6-V0-V1-V2b / up: 
+dl1-dl2-dl4-dl6-V0-V3 / up: 
+dl1-dl2-dl3-V2a-MN-V3 / up: 
+dl1-V0-V1-V2a-V2b-MN-V3 / up: 
+dl1-dl2-dl3-dl5-V0-V2a-V3 / up: 
+dl1-dl2-dl3-dl5-V0-V2a-MN-V3 / up: 
+dl1-dl2-dl3-dl4-dl5-dl6-V0-V3 / up: 
+dl1-dl2-dl6-V0-V1-V2a-V2b-MN-V3 / up: 
+dl1-dl2-dl3-dl5-V0-V2a-V2b-MN-V3 / up: 
+dl1-dl2-dl3-dl5-dl6-V0-V2a-V2b-MN-V3 / up: 
+dl1-dl2-dl3-dl4-dl5-V1-V2a-V2b-MN-V3 / up: 
+dl2-V1 / up: 
+dl2-dl3 / up: 
+dl2-V1-V2a / up: 
+dl2-dl6-MN / up: 
+dl2-V1-V2a-V2b / up: 
+dl2-V0-V1-V3 / up: 
+dl2-V0-V1-V2b / up: Nxph1
+dl2-dl5-V2a-MN / up: 
+dl2-dl4-dl6-V3 / up: 
+dl2-dl3-dl5-V3 / up: Gm2694
+dl2-dl3-dl4-dl5 / up: Mab21l1
+dl2-dl6-V0-V1-V2b / up: 
+dl2-dl4-dl6-V0-V1-V2b / up: 
+dl2-dl3-V1-V2a-MN-V3 / up: 
+dl2-dl6-V1-V2a-V2b-MN-V3 / up: 
+dl2-dl3-dl5-V1-V2a-V2b-MN / up: 
+dl2-dl6-V0-V1-V2a-V2b-MN-V3 / up: 
+dl2-dl3-dl4-dl6-V0-V1-V2a-V2b-MN-V3 / up: 
+dl3 / up: 
+dl3-V3 / up: 
+dl3-MN / up: 
+dl3-V1 / up: 
+dl3-V0 / up: 
+dl3-dl5 / up: C130021I20Rik, Bcas1
+dl3-V0-V3 / up: 
+dl3-dl6-MN / up: 
+dl3-dl5-dl6 / up: Prrxl1
+dl3-dl5-MN-V3 / up: Cbln1
+dl3-dl4-dl6-V1-MN / up: 
+dl4 / up: Gbx1, Npy
+dl4-V0 / up: Neurod6
+dl4-V1-V2a / up: 
+dl4-dl6-MN / up: 
+dl4-dl6-V2b / up: 
+dl4-dl6-V1 / up: 
+dl4-dl5-dl6 / up: 
+dl4-dl6-V1-MN / up: 
+dl4-dl6-V1-V2b / up: 
+dl4-dl6-V1-V2b-MN / up: 
+dl4-dl6-V0-V1-MN / up: 
+dl4-dl6-V0-V1-V2b-V3 / up: 
+dl4-dl6-V0-V2a-V2b-MN-V3 / up: 
+dl5 / up: Lmx1b
+dl5-V2a-V2b / up: 
+dl5-dl6-V1 / up: 
+dl5-V0-V2a-V2b / up: 
+dl5-V1-V2a-V2b-MN / up: 
+dl6 / up: Fam129a, Stum, Wt1, Rims4, Ndst4, Fam131c, Sparcl1, Ccdc85a, Ccdc166
+dl6-MN / up: Lrp1b, D430041D05Rik, Smim10l2a, Adap1
+dl6-V2b / up: 
+dl6-V2a / up: 
+dl6-V1 / up: Cdh8
+dl6-V0 / up: Foxb1
+dl6-MN-V3 / up: 
+dl6-V2b-MN / up: Opcml
+dl6-V1-V2a / up: 
+dl6-V0-MN / up: Pcdh11x
+dl6-V0-V1 / up: 
+dl6-V2b-MN-V3 / up: 
+dl6-V2a-V2b-MN / up: 
+dl6-V0-V2b-V3 / up: 
+dl6-V0-V1-V2b / up: Pnoc
+dl6-V0-V1-V2b-MN-V3 / up: 
+dl6-V0-V1-V2a-V2b-MN-V3 / up: 
+V0 / up: 
+V0-MN / up: 
+V0-V2b / up: Hbb-bs
+V0-V2a / up: 
+V0-V1 / up: 
+V0-V2a-V2b / up: 
+V1 / up: 
+V1-V2b-MN / up: 
+V1-V2a-V2b-V3 / up: 
+V2a / up: Shox2, Vsx2
+V2a-V3 / up: 
+V2a-MN / up: Lhx3, Ntng1
+V2a-V2b / up: Sox14
+V2a-MN-V3 / up: 
+V2a-V2b-V3 / up: 
+V2a-V2b-MN-V3 / up: 
+V2b / up: 
+V2b-V3 / up: 
+V2b-MN / up: 
+MN / up: Nyap2, Ecel1, Rxrg, Btbd3, A730046J19Rik, Kcnab1, S100a10, Nfia, Sema3c, Slit2, Pcdh7, Nwd2, Stx1a, Creb5, Ntf3, Fxyd7, Nrg1, Mt3, Nrp1, Nefm, Nefl, AI593442, Clstn2, Rbms3, Selenom, Rapgef6, Ngfr, Pfkp, Tspan17, Il6st, Chodl, Slc5a7
+MN-V3 / up: 
+V3 / up: 
+dl1 / Undetermined: Lhx2, Id3, Barhl2, Gm26872, Kctd4
+dl1-V3 / Undetermined: ENSMUSG00000102938, Gsg1l
+dl1-MN / Undetermined: 
+dl1-V2b / Undetermined: Msx1
+dl1-V0 / Undetermined: Gm28050
+dl1-dl2 / Undetermined: Mdga1
+dl1-dl5-V2a / Undetermined: 
+dl1-dl4-dl6 / Undetermined: 
+dl1-dl2-V3 / Undetermined: Olig3
+dl1-V2b-MN-V3 / Undetermined: Tgfb2
+dl1-V0-V1-V3 / Undetermined: 
+dl1-dl6-V0-V3 / Undetermined: Sorcs3
+dl1-dl2-V0-MN / Undetermined: C1ql3
+dl1-dl2-V0-V1 / Undetermined: Pdzrn4
+dl1-dl2-dl3-dl5 / Undetermined: Pou4f1
+dl1-dl4-dl5-dl6-V3 / Undetermined: Nrgn
+dl1-dl3-dl5-V0-V3 / Undetermined: Adcyap1
+dl1-dl2-dl4-dl5-V2a / Undetermined: Msx3
+dl1-dl2-dl3-V0-V1 / Undetermined: 
+dl1-dl2-dl3-dl5-V3 / Undetermined: Eya2
+dl1-dl2-dl3-dl5-dl6 / Undetermined: Fam19a1
+dl1-dl2-dl3-dl4-dl5 / Undetermined: 
+dl1-dl3-dl6-V2a-V2b-MN / Undetermined: Igfbp5
+dl1-dl3-dl6-V0-V1-V2b / Undetermined: Pou6f2
+dl1-dl2-dl4-dl6-V0-V3 / Undetermined: Robo3
+dl1-dl2-dl3-V2a-MN-V3 / Undetermined: Pou3f1
+dl1-V0-V1-V2a-V2b-MN-V3 / Undetermined: Sfrp2
+dl1-dl2-dl3-dl5-V0-V2a-V3 / Undetermined: Tmem163, Slc17a6, Nrn1
+dl1-dl2-dl3-dl5-V0-V2a-MN-V3 / Undetermined: Cacna2d1
+dl1-dl2-dl3-dl4-dl5-dl6-V0-V3 / Undetermined: Uncx
+dl1-dl2-dl6-V0-V1-V2a-V2b-MN-V3 / Undetermined: E130006D01Rik
+dl1-dl2-dl3-dl5-V0-V2a-V2b-MN-V3 / Undetermined: Mfng
+dl1-dl2-dl3-dl5-dl6-V0-V2a-V2b-MN-V3 / Undetermined: Peg10
+dl1-dl2-dl3-dl4-dl5-V1-V2a-V2b-MN-V3 / Undetermined: 
+dl2-V1 / Undetermined: Bhlhe23, Gm12688, Foxd3, Hmx3
+dl2-dl3 / Undetermined: Ntrk1, Pou4f2
+dl2-V1-V2a / Undetermined: Lmo3
+dl2-dl6-MN / Undetermined: Mecom
+dl2-V1-V2a-V2b / Undetermined: Prdm8
+dl2-V0-V1-V3 / Undetermined: 
+dl2-V0-V1-V2b / Undetermined: 
+dl2-dl5-V2a-MN / Undetermined: Megf11
+dl2-dl4-dl6-V3 / Undetermined: Cbln4
+dl2-dl3-dl5-V3 / Undetermined: 
+dl2-dl3-dl4-dl5 / Undetermined: Tfap2b, Skor1, Tfap2a
+dl2-dl6-V0-V1-V2b / Undetermined: Nr4a2
+dl2-dl4-dl6-V0-V1-V2b / Undetermined: Lamp5, Gm27199, Lhx5
+dl2-dl3-V1-V2a-MN-V3 / Undetermined: 
+dl2-dl6-V1-V2a-V2b-MN-V3 / Undetermined: Esrrg
+dl2-dl3-dl5-V1-V2a-V2b-MN / Undetermined: Neurog2
+dl2-dl6-V0-V1-V2a-V2b-MN-V3 / Undetermined: 
+dl2-dl3-dl4-dl6-V0-V1-V2a-V2b-MN-V3 / Undetermined: Neurod1
+dl3 / Undetermined: Rgs4, Ppp1r1c, Gm13889, Kcnmb2, Ptprr
+dl3-V3 / Undetermined: Pex5l, Rgs7bp, Gal
+dl3-MN / Undetermined: Scn9a, Anxa5, Coro2a, Prph
+dl3-V1 / Undetermined: 
+dl3-V0 / Undetermined: 
+dl3-dl5 / Undetermined: Tlx3
+dl3-V0-V3 / Undetermined: 
+dl3-dl6-MN / Undetermined: Cacna1e, Dlc1
+dl3-dl5-dl6 / Undetermined: 
+dl3-dl5-MN-V3 / Undetermined: 
+dl3-dl4-dl6-V1-MN / Undetermined: Sv2c
+dl4 / Undetermined: 
+dl4-V0 / Undetermined: 
+dl4-V1-V2a / Undetermined: Gbx2
+dl4-dl6-MN / Undetermined: Unc5c
+dl4-dl6-V2b / Undetermined: Rpp25
+dl4-dl6-V1 / Undetermined: Pax8, Myh7, Pax2
+dl4-dl5-dl6 / Undetermined: Lbx1
+dl4-dl6-V1-MN / Undetermined: March4
+dl4-dl6-V1-V2b / Undetermined: Gad2, Gad1, Slc32a1, Slc30a3, Slc6a5, Cacna2d3, Nrxn3
+dl4-dl6-V1-V2b-MN / Undetermined: Lypd1
+dl4-dl6-V0-V1-MN / Undetermined: Mafb
+dl4-dl6-V0-V1-V2b-V3 / Undetermined: Adamtsl1
+dl4-dl6-V0-V2a-V2b-MN-V3 / Undetermined: Fgf12
+dl5 / Undetermined: 
+dl5-V2a-V2b / Undetermined: 
+dl5-dl6-V1 / Undetermined: Erbb4
+dl5-V0-V2a-V2b / Undetermined: 
+dl5-V1-V2a-V2b-MN / Undetermined: Pbk
+dl6 / Undetermined: Hopx, Rph3a, Ptprz1, Gm10605, Sash1, Timp3, Cntn5, Irx2, Cartpt, Sst, Pacsin1
+dl6-MN / Undetermined: Ret, Nr2f2, Rasgef1c, Mbp
+dl6-V2b / Undetermined: Irx1
+dl6-V2a / Undetermined: Nkx6-2
+dl6-V1 / Undetermined: Rasgrp2
+dl6-V0 / Undetermined: Luzp2
+dl6-MN-V3 / Undetermined: Grrp1
+dl6-V2b-MN / Undetermined: Crnde
+dl6-V1-V2a / Undetermined: Bhlhe22
+dl6-V0-MN / Undetermined: 
+dl6-V0-V1 / Undetermined: Pax5
+dl6-V2b-MN-V3 / Undetermined: Scg2, Spon1
+dl6-V2a-V2b-MN / Undetermined: Hpca, Irx3, Irx5
+dl6-V0-V2b-V3 / Undetermined: Kcnh7
+dl6-V0-V1-V2b / Undetermined: 
+dl6-V0-V1-V2b-MN-V3 / Undetermined: Samd5
+dl6-V0-V1-V2a-V2b-MN-V3 / Undetermined: Slc12a5
+V0 / Undetermined: Lnpk, Evx2, Pitx2, Evx1os, Evx1, Hba-a1, Hba-a2, Tuba1c, Fech
+V0-MN / Undetermined: Palm3
+V0-V2b / Undetermined: 
+V0-V2a / Undetermined: Fam163a
+V0-V1 / Undetermined: Sp9
+V0-V2a-V2b / Undetermined: Pax6
+V1 / Undetermined: Foxp2
+V1-V2b-MN / Undetermined: 
+V1-V2a-V2b-V3 / Undetermined: Asic4
+V2a / Undetermined: Mlf1, Pcp4
+V2a-V3 / Undetermined: Dach2
+V2a-MN / Undetermined: Lhx4, Slc18a3, Gm2990, Sp8
+V2a-V2b / Undetermined: Sox21, Gm26791
+V2a-MN-V3 / Undetermined: Nkx6-1
+V2a-V2b-V3 / Undetermined: Kif26a
+V2a-V2b-MN-V3 / Undetermined: Islr2
+V2b / Undetermined: Gata3, 9230102O04Rik, Tal1, Zfpm1, Crhbp
+V2b-V3 / Undetermined: 
+V2b-MN / Undetermined: Arhgap29
+MN / Undetermined: Cd59a, Arhgap36, Jun, Mnx1, Gm5868, Slc10a4, Foxp1, Mfap3l, Isl2, Tln2, Aldh1a2, Rbp1, Rbp2, Slit3, Snx18, Asap1, Uts2b, Arhgap28, Mcc
+MN-V3 / Undetermined: Tagln2, Adgra1, Sncg, C1ql1, Cthrc1
+V3 / Undetermined: Pam, Nkx2-2, Tmem255a, Sim1, Dlk1
