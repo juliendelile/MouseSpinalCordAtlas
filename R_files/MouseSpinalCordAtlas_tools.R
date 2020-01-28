@@ -490,6 +490,9 @@ runCombinatorialDETests <- function(m_combDE, combinatorialModels, numcores=4){
       )
   }
 
+  # multidplyr latest version is not compatible with following code
+  # -> older commit must be installed
+  # devtools::install_github("tidyverse/multidplyr", ref="3e65c2c")
   cl <- multidplyr::create_cluster(numcores) # too many cores trigger segmentation fault (lack of memory when HSMM is copied on each cluster)
   multidplyr::cluster_copy(cl, model_test)
   multidplyr::cluster_copy(cl, HSMM)
