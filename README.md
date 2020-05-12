@@ -85,10 +85,10 @@ be uncompressed into the dataset folder.
 unzip("./dataset/UMI_count.tsv.zip", exdir="./dataset/")
 ```
 
-The Antler package is required and can be installed with devtools.
+The Antler package *as it was at the time of publication* is required and can be installed with devtools.
 
 ``` r
-devtools::install_github("juliendelile/Antler")
+devtools::install_github("juliendelile/Antler", ref = "Development2019")
 
 library(Antler)
 ```
